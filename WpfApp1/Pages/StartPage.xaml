@@ -1,0 +1,63 @@
+﻿<Page x:Class="WpfApp1.Pages.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StartPage">
+
+    <Grid Background="MediumPurple">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--Menu-->
+        <TextBlock FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White">Welcome</TextBlock>
+        <StackPanel Margin="140 0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ComboBox Margin="5" Width="100" Height="20" x:Name="SortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="SortBox_SelectionChanged"></ComboBox>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="80" Height="20" Click="ProductsButton_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">Products</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <TextBox x:Name="SearchBox" Margin="5" Width="200" Height="20" TextChanged="TextBox_TextChanged"></TextBox>
+            <Button x:Name="AccountButton" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="100" Height="20" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White"></Button>
+        </StackPanel>
+
+        <!--List-->
+        <ListBox x:Name="MasterListBox" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Width="260">
+                        <Image Height="120" Width="120" Source="{Binding ImagePath}"/>
+                        <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
+                        <Button Margin="5" Width="120" Height="20" Click="MasterButton_Click" Background="DeepPink" Foreground="White">Master Page</Button>
+                        <!--<TextBlock Text="{Binding Genre, StringFormat=Genre: {0}}" HorizontalAlignment="Center"/>-->
+                        <ListBox x:Name="ServiceListBox" Height="160" ItemsSource="{Binding Services}" Grid.Row="1" Background="FloralWhite" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Left"/>
+                                        <TextBlock FontSize="12" Text="{Binding Price, StringFormat={}{0} Rub.}" HorizontalAlignment="Left"/>
+                                        <TextBlock FontSize="12" Text="{Binding ServiceTypes.Name}" HorizontalAlignment="Left"/>
+                                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" HorizontalAlignment="Left" Background="MediumPurple" Foreground="White">Book Appointment</Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Page>

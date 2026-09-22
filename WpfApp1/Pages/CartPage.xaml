@@ -1,0 +1,43 @@
+﻿<Page x:Class="WpfApp1.Pages.CartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CartPage">
+
+    <Grid Background="FloralWhite">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="MediumPurple" TextAlignment="Center">Cart</TextBlock>
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <TextBlock Text="Cart" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
+            <ListBox x:Name="CartListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="FloralWhite">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="100" Orientation="Horizontal">
+                            <Image Source="{Binding ImagePath}" Width="120"/>
+                            <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Price, StringFormat={}{0} Rub.}" Margin="10" HorizontalAlignment="Center" FontSize="22"/>
+                            <Button Margin="5" Width="50" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Foreground="White" Background="Red" Click="RemoveButton_Click">x</Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <TextBlock x:Name="Price" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center">Total Price:</TextBlock>
+            <Button Height="50" Width="100" Background="MediumPurple" Foreground="White" Click="Button_Click" FontSize="22" Margin="10">Order</Button>
+        </StackPanel>
+    </Grid>
+</Page>
