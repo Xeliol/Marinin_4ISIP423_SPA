@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MasterPage">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="4*"></ColumnDefinition>
@@ -17,7 +17,7 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="#233E76" TextAlignment="Center">Мастер</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center">Мастер</TextBlock>
         <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
             <Image Source="{Binding ImagePath}" Width="Auto"/>
             <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Center"/>
@@ -26,12 +26,12 @@
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <TextBlock Text="Услуги" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
-            <ListBox x:Name="ServicesListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="White">
+            <ListBox x:Name="ServicesListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Height="100">
                             <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Left"/>
-                            <Button Margin="5" Width="120" Height="20" Click="Button_Click" HorizontalAlignment="Left" Background="#275e9f" Foreground="White">Записаться</Button>
+                            <Button Margin="5" Width="120" Height="20" Click="Button_Click" HorizontalAlignment="Left">Записаться</Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

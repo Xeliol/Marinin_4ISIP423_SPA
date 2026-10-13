@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MasterAccountPage">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -18,17 +18,17 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="#233E76" TextAlignment="Center">Аккаунт Мастера</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center">Аккаунт Мастера</TextBlock>
         <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
             <Image Source="{Binding ImagePath}" Width="Auto"/>
             <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Login, StringFormat=Логин: {0}}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Phone, StringFormat=Телефон: {0}}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Email, StringFormat=E-mail: {0}}" HorizontalAlignment="Center"/>
-            <Button x:Name="LogOutButton"  Width="100" BorderBrush="White" BorderThickness="2" Background="#275e9f" Foreground="White" Click="LogOutButton_Click">Выйти</Button>
+            <Button x:Name="LogOutButton"  Width="100" Click="LogOutButton_Click">Выйти</Button>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <TextBlock Text="Записи" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
-            <ListBox x:Name="SessionListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="White">
+            <ListBox x:Name="SessionListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
@@ -38,7 +38,7 @@
                             </StackPanel>
                             <TextBlock Text="{Binding Date, StringFormat={}{0:HH:mm}}" Margin="10" HorizontalAlignment="Center" FontSize="22"/>
                             <TextBlock Text="{Binding Users.Name}" Margin="10" HorizontalAlignment="Center"/>
-                            <Button Width="100" BorderBrush="White" BorderThickness="2" Background="#275e9f" Foreground="White" Click="FinishButton_Click">Закрыть</Button>
+                            <Button Width="100" Click="FinishButton_Click">Закрыть</Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -51,7 +51,7 @@
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <TextBlock Text="Услуги" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
-            <ListBox x:Name="ServiceListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="White">
+            <ListBox x:Name="ServiceListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Height="Auto" Width="Auto" Orientation="Horizontal">
@@ -60,7 +60,7 @@
                                 <TextBlock Text="{Binding Description}" HorizontalAlignment="Center"/>
                                 <TextBlock Text="{Binding Price, StringFormat={}{0} Руб.}" HorizontalAlignment="Center"/>
                             </StackPanel>
-                            <Button Margin="10" Width="100" BorderBrush="White" BorderThickness="2" Background="#275e9f" Foreground="White" Click="EditButton_Click">Edit</Button>
+                            <Button Margin="10" Width="100" Click="EditButton_Click">Edit</Button>
                             <Button Margin="10" Width="50" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Foreground="White" Background="#dd4842" Click="RemoveButton_Click">x</Button>
                         </StackPanel>
                     </DataTemplate>

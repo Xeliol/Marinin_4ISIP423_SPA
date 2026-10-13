@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CartPage">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -16,10 +16,9 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="#233E76" TextAlignment="Center">Корзина</TextBlock>
+        <TextBlock Grid.Row="0" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center">Корзина</TextBlock>
         <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-            <TextBlock Text="Корзина" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
-            <ListBox x:Name="CartListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" Background="White">
+            <ListBox x:Name="CartListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Height="100" Orientation="Horizontal">
@@ -37,7 +36,7 @@
                 </ListBox.ItemsPanel>
             </ListBox>
             <TextBlock x:Name="Price" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center">Итоговая цена:</TextBlock>
-            <Button Height="50" Width="100" Background="#275e9f" Foreground="White" Click="Button_Click" FontSize="22" Margin="10">Заказать</Button>
+            <Button Height="50" Width="100" Click="Button_Click" FontSize="22" Margin="10">Заказать</Button>
         </StackPanel>
     </Grid>
 </Page>

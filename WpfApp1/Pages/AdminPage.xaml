@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AdminPage">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -18,13 +18,13 @@
             <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="#233E76" TextAlignment="Center">Админ</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center">Админ</TextBlock>
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
-            <Button x:Name="LogOutButton"  Width="100" BorderBrush="White" BorderThickness="2" Margin="0 50" Background="#275e9f" Foreground="White" Click="LogOutButton_Click">Выйти</Button>
+            <Button x:Name="LogOutButton" Width="100" Margin="0 50" Click="LogOutButton_Click">Выйти</Button>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="10">
             <TextBlock Text="Пользователи" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
-            <ListBox x:Name="UserListBox" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300" ScrollViewer.CanContentScroll="True" Margin="0 30 0 0" Background="White">
+            <ListBox x:Name="UserListBox" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300" ScrollViewer.CanContentScroll="True" Margin="0 30 0 0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -50,8 +50,8 @@
             </ListBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <Button Click="AddButton" Height="20" Width="140" Margin="10" Background="#275e9f" Foreground="White">Добавить пользователя</Button>
-            <Button Height="20" Width="100" Margin="10" Background="#275e9f" Foreground="White" Click="EditButton">Сохранить</Button>
+            <Button Click="AddButton" Height="20" Width="140" Margin="10">Добавить пользователя</Button>
+            <Button Height="20" Width="100" Margin="10" Click="EditButton">Сохранить</Button>
         </StackPanel>
     </Grid>
 </Page>

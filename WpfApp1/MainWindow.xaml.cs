@@ -90,6 +90,56 @@ namespace WpfApp1
                     break;
             }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.IsEnabled = true;
+            timer.Tick += (o, t) => {
+                DateTimeNow.Text = DateTime.Now.ToString();
+            };
+            timer.Start();
+        }
+
+        void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Вы уверены, что хотите закрыть окно?", "Message",
+            MessageBoxButton.YesNo) == System.Windows.MessageBoxResult.No)
+                e.Cancel = true;
+            else
+
+                e.Cancel = false;
+        }
+
+        private void StyleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (StyleButton.Content == "☾")
+            {
+                StyleButton.Content = "☼";
+                // определяем путь к файлу ресурсов
+                var uri = new Uri("Dictionary.xaml", UriKind.Relative);
+                // загружаем словарь ресурсов
+                ResourceDictionary resourceDict = Application.LoadComponent(uri) as
+                ResourceDictionary;
+                // очищаем коллекцию ресурсов приложения
+                Application.Current.Resources.Clear();
+                // добавляем загруженный словарь ресурсов
+                Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+            } else
+            {
+                StyleButton.Content = "☾";
+                // определяем путь к файлу ресурсов
+                var uri = new Uri("DictionaryDark.xaml", UriKind.Relative);
+                // загружаем словарь ресурсов
+                ResourceDictionary resourceDict = Application.LoadComponent(uri) as
+                ResourceDictionary;
+                // очищаем коллекцию ресурсов приложения
+                Application.Current.Resources.Clear();
+                // добавляем загруженный словарь ресурсов
+                Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+            }
+        }
     }
 
     public static class NavigationData
