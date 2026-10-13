@@ -44,7 +44,7 @@ namespace WpfApp1.Pages
             cur_app.Reserved = true;
             Core.Context.SaveChanges();
 
-            MessageBox.Show("Booked the appointment!");
+            MessageBox.Show("Запись прошла успешно!");
             NavigationService.Navigate(new AccountPage());
         }
     }

@@ -30,7 +30,7 @@ namespace WpfApp1.Pages
 
             List<string> SortItems = Core.Context.ServiceTypes.Select(t => t.Name).ToList();
 
-            SortItems.Add("None");
+            SortItems.Add("Пусто");
 
             SortBox.ItemsSource = SortItems;
         }
@@ -55,7 +55,7 @@ namespace WpfApp1.Pages
 
         private void SortBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (SortBox.SelectedItem != null && SortBox.SelectedItem != "None")
+            if (SortBox.SelectedItem != null && SortBox.SelectedItem != "Пусто")
             {
                 List<Users> newsource = Core.Context.Users.Where(u => u.TypeID == 2 && Core.Context.Services.Where(s => s.ServiceTypes.Name == SortBox.SelectedItem).Select(s => s.MasterID).Contains(u.UserID)).ToList();
                 MasterListBox.ItemsSource = newsource;

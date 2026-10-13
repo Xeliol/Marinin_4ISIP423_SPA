@@ -46,20 +46,20 @@ namespace WpfApp1
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
             Page currentPage = MainFrame.Content as Page;
-            if (AccountButton.Content == "Log In") MainFrame.NavigationService.Navigate(new StartPage());
-            else if (AccountButton.Content == "My Account") MainFrame.NavigationService.Navigate(new StartPage());
-            else if (AccountButton.Content == "My Profile") MainFrame.NavigationService.Navigate(new StartPage());
-            else if (AccountButton.Content == "Manage") MainFrame.NavigationService.Navigate(new ManagerPage());
-            else if (AccountButton.Content == "Admin") MainFrame.NavigationService.Navigate(new AdminPage());
+            if (AccountButton.Content == "Войти") MainFrame.NavigationService.Navigate(new StartPage());
+            else if (AccountButton.Content == "Аккаунт") MainFrame.NavigationService.Navigate(new StartPage());
+            else if (AccountButton.Content == "Профиль") MainFrame.NavigationService.Navigate(new StartPage());
+            else if (AccountButton.Content == "Управление") MainFrame.NavigationService.Navigate(new ManagerPage());
+            else if (AccountButton.Content == "Админ") MainFrame.NavigationService.Navigate(new AdminPage());
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-            if (AccountButton.Content == "Log In") MainFrame.NavigationService.Navigate(new LoginPage());
-            else if (AccountButton.Content == "My Account") MainFrame.NavigationService.Navigate(new AccountPage());
-            else if (AccountButton.Content == "My Profile") MainFrame.NavigationService.Navigate(new MasterAccountPage());
-            else if (AccountButton.Content == "Manage") MainFrame.NavigationService.Navigate(new ManagerPage());
-            else if (AccountButton.Content == "Admin") MainFrame.NavigationService.Navigate(new AdminPage());
+            if (AccountButton.Content == "Войти") MainFrame.NavigationService.Navigate(new LoginPage());
+            else if (AccountButton.Content == "Аккаунт") MainFrame.NavigationService.Navigate(new AccountPage());
+            else if (AccountButton.Content == "Профиль") MainFrame.NavigationService.Navigate(new MasterAccountPage());
+            else if (AccountButton.Content == "Управление") MainFrame.NavigationService.Navigate(new ManagerPage());
+            else if (AccountButton.Content == "Админ") MainFrame.NavigationService.Navigate(new AdminPage());
         }
 
         private void MasterAccountButton_Click(object sender, RoutedEventArgs e)
@@ -74,19 +74,19 @@ namespace WpfApp1
             switch (user.Type)
             {
                 case 0:
-                    AccountButton.Content = "Log In";
+                    AccountButton.Content = "Войти";
                     break;
                 case 1:
-                    AccountButton.Content = "My Account";
+                    AccountButton.Content = "Аккаунт";
                     break;
                 case 2:
-                    AccountButton.Content = "My Profile";
+                    AccountButton.Content = "Профиль";
                     break;
                 case 3:
-                    AccountButton.Content = "Manage";
+                    AccountButton.Content = "Управление";
                     break;
                 case 4:
-                    AccountButton.Content = "Admin";
+                    AccountButton.Content = "Админ";
                     break;
             }
         }

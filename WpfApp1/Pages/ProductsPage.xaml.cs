@@ -33,9 +33,9 @@ namespace WpfApp1.Pages
 
             List<string> ManufacturerSorts = Core.Context.Manufacturers.Select(pt => pt.Name).ToList();
 
-            TypeSorts.Insert(0, "None");
+            TypeSorts.Insert(0, "Пусто");
 
-            ManufacturerSorts.Insert(0, "None");
+            ManufacturerSorts.Insert(0, "Пусто");
 
             TypeSortBox.ItemsSource = TypeSorts;
 
@@ -70,7 +70,7 @@ namespace WpfApp1.Pages
                 }
             }
             else
-                MessageBox.Show("Only registered Clients can use the cart.");
+                MessageBox.Show("Только зарегистрированные клиенты могут пользоваться коризной.");
         }
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
@@ -102,7 +102,7 @@ namespace WpfApp1.Pages
             }
             else
             {
-                MessageBox.Show("Only registered Clients can use the cart.");
+                MessageBox.Show("Только зарегистрированные клиенты могут пользоваться коризной.");
             }
         }
 

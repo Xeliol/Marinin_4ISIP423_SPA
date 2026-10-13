@@ -72,13 +72,13 @@ namespace WpfApp1.Pages
 
             CartListBox.ItemsSource = prods;
 
-            Price.Text = "Total Price: " + summ +" Rub.";
+            Price.Text = "Итоговая цена: " + summ +" Руб.";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //ORDER PAGE
-            Window1 win = new Window1(cart);
+            PaymentWindow win = new PaymentWindow(cart);
             win.Show();
         }
     }

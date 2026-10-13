@@ -17,10 +17,10 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class PaymentWindow : Window
     {
         Cart cart = new Cart();
-        public Window1(Cart crt)
+        public PaymentWindow(Cart crt)
         {
             InitializeComponent();
 

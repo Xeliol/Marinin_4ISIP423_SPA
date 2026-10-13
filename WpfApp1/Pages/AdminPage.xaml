@@ -18,27 +18,27 @@
             <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="MediumPurple" TextAlignment="Center">Account</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="MediumPurple" TextAlignment="Center">Админ</TextBlock>
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
-            <Button x:Name="LogOutButton"  Width="100" BorderBrush="White" BorderThickness="2" Margin="0 50" Background="MediumPurple" Foreground="White" Click="LogOutButton_Click">Log Out</Button>
+            <Button x:Name="LogOutButton"  Width="100" BorderBrush="White" BorderThickness="2" Margin="0 50" Background="MediumPurple" Foreground="White" Click="LogOutButton_Click">Выйти</Button>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="10">
-            <TextBlock Text="Users" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
+            <TextBlock Text="Пользователи" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
             <ListBox x:Name="UserListBox" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300" ScrollViewer.CanContentScroll="True" Margin="0 30 0 0" Background="FloralWhite">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Label>Login:</Label>
+                            <Label>Логин:</Label>
                             <TextBox Text="{Binding Login}" Width="150" Height="20" HorizontalAlignment="Left"/>
-                            <Label>Name:</Label>
+                            <Label>Имя:</Label>
                             <TextBox Text="{Binding Name}"  Width="150" Height="20" HorizontalAlignment="Left"/>
-                            <Label>Email:</Label>
+                            <Label>E-mail:</Label>
                             <TextBox Text="{Binding Email}" Width="150" Height="20" HorizontalAlignment="Left"/>
-                            <Label>Phone:</Label>
+                            <Label>Телефон:</Label>
                             <TextBox Text="{Binding Phone}" Width="150" Height="20" HorizontalAlignment="Left"/>
-                            <Label>User Type:</Label>
+                            <Label>Роль:</Label>
                             <TextBox Text="{Binding TypeID}" Width="150" Height="20" HorizontalAlignment="Left"/>
-                            <Button Height="20" Width="150" Margin="0 10" Background="Red" Foreground="White" HorizontalAlignment="Left" Click="RemoveButton">Remove</Button>
+                            <Button Height="20" Width="150" Margin="0 10" Background="Red" Foreground="White" HorizontalAlignment="Left" Click="RemoveButton">Удалить</Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -50,8 +50,8 @@
             </ListBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <Button Click="AddButton" Height="20" Width="100" Margin="10" Background="MediumPurple" Foreground="White">Add User</Button>
-            <Button Height="20" Width="100" Margin="10" Background="MediumPurple" Foreground="White" Click="EditButton">Save Changes</Button>
+            <Button Click="AddButton" Height="20" Width="140" Margin="10" Background="MediumPurple" Foreground="White">Добавить пользователя</Button>
+            <Button Height="20" Width="100" Margin="10" Background="MediumPurple" Foreground="White" Click="EditButton">Сохранить</Button>
         </StackPanel>
     </Grid>
 </Page>
