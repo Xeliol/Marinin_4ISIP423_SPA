@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AppointmentConfirmationPage">
 
-    <Grid Background="FloralWhite">
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -17,13 +17,13 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="MediumPurple" TextAlignment="Center" Text="{Binding Services.Name}"></TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="#233E76" TextAlignment="Center" Text="{Binding Services.Name}"></TextBlock>
         <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top">
             <Image Source="{Binding Services.Users.ImagePath}" Width="Auto"/>
             <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Services.Users.Name}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Services.Users.Phone, StringFormat=Телефон: {0}}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Services.Users.Email, StringFormat=E-mail: {0}}" HorizontalAlignment="Center"/>
-            <Button Width="120" BorderBrush="White" BorderThickness="2" Background="DeepPink" Foreground="White" Click="MasterButton_Click">Страница мастера</Button>
+            <Button Width="120" BorderBrush="White" BorderThickness="2" Background="#4dc6c5" Foreground="White" Click="MasterButton_Click">Страница мастера</Button>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <TextBlock Text="Информация об услуге" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
@@ -35,7 +35,7 @@
                 <TextBlock Text="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}" HorizontalAlignment="Center" FontSize="8" Foreground="Gray"/>
                 <TextBlock Text="{Binding Date, StringFormat={}{0:HH:mm}}" Margin="10" HorizontalAlignment="Center" FontSize="22"/>
             </StackPanel>
-            <Button Height="auto" Width="auto" Background="MediumPurple" Foreground="White" Margin="40 0" Click="Button_Click" FontSize="30" FontWeight="Bold">Записаться</Button>
+            <Button Height="auto" Width="auto" Background="#275e9f" Foreground="White" Margin="40 0" Click="Button_Click" FontSize="30" FontWeight="Bold">Записаться</Button>
         </StackPanel>
     </Grid>
 </Page>

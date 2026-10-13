@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductsPage">
 
-    <Grid Background="MediumPurple">
+    <Grid Background="#233E76">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -18,15 +18,15 @@
         <StackPanel Margin="140 0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ComboBox Margin="5" Width="100" Height="20" x:Name="TypeSortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="TypeSortBox_SelectionChanged"></ComboBox>
             <ComboBox Margin="5" Width="100" Height="20" x:Name="ManufacturerSortBox" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="ManufacturerSortBox_SelectionChanged"></ComboBox>
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="80" Height="20" Click="CartButton_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">Корзина 🛒</Button>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="80" Height="20" Click="CartButton_Click" BorderBrush="White" BorderThickness="2" Background="#275e9f" Foreground="White">Корзина 🛒</Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
             <TextBox x:Name="SearchBox" Margin="5" Width="200" Height="20" TextChanged="TextBox_TextChanged"></TextBox>
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="100" Height="20" Click="AccountButton_Click" BorderBrush="White" BorderThickness="2" Background="MediumPurple" Foreground="White">Аккаунт</Button>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" Width="100" Height="20" Click="AccountButton_Click" BorderBrush="White" BorderThickness="2" Background="#275e9f" Foreground="White">Аккаунт</Button>
         </StackPanel>
 
         <!--List-->
-        <ListBox x:Name="ProductListBox" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="FloralWhite">
+        <ListBox x:Name="ProductListBox" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="White">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="220">
@@ -35,7 +35,7 @@
                         <TextBlock FontStyle="Italic" Text="{Binding Description}" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
                         <TextBlock Text="{Binding ProductTypes.Name, StringFormat=Тип: {0}}" HorizontalAlignment="Center"/>
                         <TextBlock Text="{Binding Manufacturers.Name, StringFormat=Производитель: {0}}" HorizontalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Foreground="Red">
+                        <TextBlock HorizontalAlignment="Center" Foreground="#dd4842">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="Text" Value="{Binding Price, StringFormat={}{0} Руб.}"/>
@@ -67,7 +67,7 @@
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="MediumPurple" Foreground="White">В корзину</Button>
+                        <Button Margin="5" Width="120" Height="20" Click="Button_Click" Background="#275e9f" Foreground="White">В корзину</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
