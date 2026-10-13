@@ -15,14 +15,14 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" Foreground="White" Background="#233E76" TextAlignment="Center" Text="Заказ"></TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center" Text="Заказ"></TextBlock>
         <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top">
             <Image Source="{Binding Products.ImagePath}" Width="Auto"/>
             <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Products.Name}" HorizontalAlignment="Center"/>
         </StackPanel>
         <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="0">
             <TextBlock Text="Выбрать дату" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
-            <Button Height="20" Width="auto" Background="#275e9f" Foreground="White" Click="Button_Click">Очистить</Button>
+            <Button Height="20" Width="auto" Click="Button_Click">Очистить</Button>
             <Viewbox Width="300" Height="Auto">
                 <Calendar x:Name="SortCalendar" SelectedDatesChanged="SortCalendar_SelectedDatesChanged"/>
             </Viewbox>
@@ -31,7 +31,7 @@
             <TextBlock Text="Детали оплаты" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
             <TextBlock Width="100" Margin="5">Способ оплаты:</TextBlock>
             <ComboBox x:Name="PaymentBox" Width="100" Margin="5"></ComboBox>
-            <Button x:Name="OrderButton" Margin="20" Height="50" Background="#275e9f" Foreground="White" FontSize="24" FontWeight="Bold" Click="OrderButton_Click">Подтвердить заказ</Button>
+            <Button x:Name="OrderButton" Margin="20" Height="50" FontSize="24" FontWeight="Bold" Click="OrderButton_Click">Подтвердить заказ</Button>
         </StackPanel>
     </Grid>
 </Window>
