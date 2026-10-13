@@ -36,5 +36,10 @@ namespace WpfApp1.Pages
             MessageBox.Show("Logged Out.");
             NavigationService.Navigate(new StartPage());
         }
+
+        private void Users_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UsersPage());
+        }
     }
 }

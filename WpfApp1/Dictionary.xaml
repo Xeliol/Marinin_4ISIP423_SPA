@@ -29,4 +29,8 @@
     <Style TargetType="Grid">
         <Setter Property="Background" Value="#FFFFFF"/>
     </Style>
+
+    <Style TargetType="ListView">
+        <Setter Property="Background" Value="#FFFFFF"/>
+    </Style>
 </ResourceDictionary>

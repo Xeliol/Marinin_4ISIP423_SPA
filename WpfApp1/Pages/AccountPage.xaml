@@ -64,7 +64,7 @@
                         <StackPanel Height="150" Width="400">
                             <TextBlock FontSize="18" FontWeight="Bold" Text="Order" HorizontalAlignment="Center"/>
                             <TextBlock Text="{Binding PreferedDate, StringFormat={}{0:dd.MM.yyyy}}" HorizontalAlignment="Center"/>
-                            <ListBox ItemsSource="{Binding ProductsOrder}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="100" Background="FloralWhite">
+                            <ListBox ItemsSource="{Binding ProductsOrder}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="100" Background="White">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Products.Name}" HorizontalAlignment="Center"/>

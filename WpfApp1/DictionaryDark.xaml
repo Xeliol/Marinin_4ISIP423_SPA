@@ -21,6 +21,12 @@
         <Setter Property="Foreground" Value="#FFFFFF"/>
         <Setter Property="Background" Value="#193d57" />
     </Style>
+    
+    <Style TargetType="PasswordBox">
+        <Setter Property="FontFamily" Value="Open Sans" />
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Background" Value="#193d57" />
+    </Style>
 
     <Style TargetType="Label">
         <Setter Property="FontFamily" Value="Open Sans" />
@@ -32,6 +38,10 @@
     </Style>
 
     <Style TargetType="Grid">
+        <Setter Property="Background" Value="#193d57"/>
+    </Style>
+
+    <Style TargetType="ListView">
         <Setter Property="Background" Value="#193d57"/>
     </Style>
 

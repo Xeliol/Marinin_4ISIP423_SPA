@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -34,10 +35,20 @@ namespace WpfApp1.Pages
         List<String> people = new List<String>();
         List<String> nums = new List<String> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
+        public static string GetHash(String password)
+        {
+            using (var hash = SHA1.Create())
+            {
+                return
+                string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x =>
+                x.ToString("X2")));
+            }
+        }
+
         private bool isPassWrong(String pass)
         {
             bool flag = true;
-            if (PassBox1.Text.Length < 8) flag = false;
+            if (PassBox1.Password.Length < 8) flag = false;
             else
             {
                 flag = pass.Any(char.IsDigit);
@@ -70,14 +81,13 @@ namespace WpfApp1.Pages
 
         private void SignupButton_Click(object sender, RoutedEventArgs e)
         {
-            var signup = SignUp(LoginBox.Text, PassBox1.Text, PassBox2.Text, PhoneBox.Text, EmailBox.Text);
+            var signup = SignUp(LoginBox.Text, PassBox1.Password, PassBox2.Password, PhoneBox.Text, EmailBox.Text);
             if (signup)
             {
                 Users new_user = new Users
                 {
-                    UserID = Core.Context.Users.ToList().Count() + 1,
                     Login = LoginBox.Text,
-                    Password = PassBox1.Text,
+                    Password = GetHash(PassBox1.Password),
                     Phone = PhoneBox.Text,
                     TypeID = 1,
                 };
@@ -95,7 +105,7 @@ namespace WpfApp1.Pages
                 cur.ID = new_user.UserID;
                 cur.Type = new_user.TypeID;
 
-                MessageBox.Show("Account created!");
+                MessageBox.Show("Аккаунт создан!");
                 NavigationService.Navigate(new StartPage());
             }
         }
@@ -114,28 +124,29 @@ namespace WpfApp1.Pages
             {
                 if (people.Contains(login))
                 {
-                    MessageBox.Show("Username is already in use.");
+                    MessageBox.Show("Логин уже используется.");
                     return false;
                 }
                 else
                 {
                     if (pass1 != pass2)
                     {
-                        MessageBox.Show("Passwords do not match.");
+                        MessageBox.Show("Пароли не совпадают.");
                         return false;
                     }
                     else
                     {
                         bool flag = true;
-                        if (pass1.Length < 8) flag = false;
+                        if (pass1.Length < 6) flag = false;
                         else
                         {
+                            flag = Regex.IsMatch(pass1, "^[a-zA-Z0-9]*$");
                             flag = pass1.Any(char.IsDigit);
                             flag = flag && !pass1.All(char.IsDigit);
                         }
                         if (!flag)
                         {
-                            MessageBox.Show("Password does not follow the rules.");
+                            MessageBox.Show("Пароль не соответствует правилам.");
                             return false;
                         }
                         else
@@ -146,7 +157,7 @@ namespace WpfApp1.Pages
                             }
                             else
                             {
-                                MessageBox.Show("Phone number is invalid.");
+                                MessageBox.Show("Телефонный номер некорректный.");
                                 return false;
                             }
                         }
@@ -155,7 +166,7 @@ namespace WpfApp1.Pages
             }
             else
             {
-                MessageBox.Show("Please fill every field without '*'.");
+                MessageBox.Show("Заполните все поля без '*'.");
                 return false;
             }
         }

@@ -14,28 +14,32 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" FontSize="24" TextAlignment="Center" FontWeight="Bold">Регистрация</TextBlock>
-        <StackPanel Grid.Row="1" Margin="0 30" Width="400">
+        <StackPanel Grid.Row="1" Margin="0 30" Width="450">
             <TextBlock FontSize="18" FontWeight="Bold" Text="Регистрация" HorizontalAlignment="Center"/>
             <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock FontSize="18" Text="ФИО: " HorizontalAlignment="Center"/>
+                <TextBox x:Name="NameBox" Width="200" ToolTip="Введите ФИО"></TextBox>
+            </StackPanel>
+            <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontSize="18" Text="Логин: " HorizontalAlignment="Center"/>
-                <TextBox x:Name="LoginBox" Width="200"></TextBox>
+                <TextBox x:Name="LoginBox" Width="200" ToolTip="Введите логин"></TextBox>
             </StackPanel>
             <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontSize="18" Text="Пароль: " HorizontalAlignment="Center"/>
-                <TextBox x:Name="PassBox1" Width="200"></TextBox>
+                <PasswordBox x:Name="PassBox1" Width="200" ToolTip="Введите пароль"></PasswordBox>
             </StackPanel>
-            <TextBlock FontSize="10" Text="Пароль ОБЯЗАН быть не менее 8 символов длиной, включать в себя буквы и числа." HorizontalAlignment="Center"/>
+            <TextBlock FontSize="10" Text="Пароль ОБЯЗАН быть на английском не менее 6 символов длиной, хотя бы одну букву и цифру." HorizontalAlignment="Center"/>
             <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontSize="18" Text="Повторите пароль: " HorizontalAlignment="Center"/>
-                <TextBox x:Name="PassBox2" Width="200"></TextBox>
+                <PasswordBox x:Name="PassBox2" Width="200" ToolTip="Введите пароль снова"></PasswordBox>
             </StackPanel>
             <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontSize="18" Text="Телефон: " HorizontalAlignment="Center"/>
-                <TextBox x:Name="PhoneBox" Width="200"></TextBox>
+                <TextBox x:Name="PhoneBox" Width="200" ToolTip="Введите телефон"></TextBox>
             </StackPanel>
             <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontSize="18" Text="E-mail*: " HorizontalAlignment="Center"/>
-                <TextBox x:Name="EmailBox" Width="200"></TextBox>
+                <TextBox x:Name="EmailBox" Width="200" ToolTip="Введите почту"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontSize="12" Text="Уже есть аккаунт?" HorizontalAlignment="Center" VerticalAlignment="Center"/>

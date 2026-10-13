@@ -103,10 +103,10 @@ namespace WpfApp1.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            bool auth = Auth(LoginBox.Text, GetHash(PassBox.Text));
+            bool auth = Auth(LoginBox.Text, GetHash(PassBox.Password));
             if (auth)
             {
-                var log_user = Core.Context.Users.ToList().Where(p => p.Login == LoginBox.Text).Where(p => p.Password == PassBox.Text);
+                var log_user = Core.Context.Users.ToList().Where(p => p.Login == LoginBox.Text).Where(p => p.Password == GetHash(PassBox.Password));
                 var cur = NavigationData.CurrentData as CurData;
 
                 cur.Login = log_user.First().Login;

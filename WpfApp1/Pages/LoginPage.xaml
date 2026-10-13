@@ -26,7 +26,7 @@
             </StackPanel>
             <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock x:Name="labelPass" FontSize="18" Text="Пароль: " HorizontalAlignment="Center"/>
-                <TextBox x:Name="PassBox" Width="200" ToolTip="Введите пароль"></TextBox>
+                <PasswordBox x:Name="PassBox" Width="200" ToolTip="Введите пароль"></PasswordBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock FontSize="12" Text="Нет аккаунта?" HorizontalAlignment="Center" VerticalAlignment="Center"/>
