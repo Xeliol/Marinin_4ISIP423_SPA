@@ -66,7 +66,7 @@ namespace WpfApp1.Pages
                 }
             }else
             {
-                MessageBox.Show("Only registered Clients can book appointments.");
+                MessageBox.Show("Записываться могут только зарегистрированные клиенты.");
             }
         }
     }

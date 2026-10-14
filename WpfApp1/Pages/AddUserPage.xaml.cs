@@ -27,12 +27,8 @@ namespace WpfApp1.Pages
             }
 
             DataContext = _currentUser;
-
-            if (!_isNewUser)
-            {
-                cmbRole.SelectedValue = _currentUser.TypeID;
-            }
         }
+
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {

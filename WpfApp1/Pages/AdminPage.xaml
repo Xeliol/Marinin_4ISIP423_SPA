@@ -18,14 +18,16 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center">Управление (Админ)</TextBlock>
         <Button x:Name="LogOutButton" Grid.Column="0" Grid.Row="0" Width="100" Height="25" Click="LogOutButton_Click" Margin="0">Выйти</Button>
-        <Button x:Name="Appointments" Grid.Column="0" Grid.Row="1" Margin="30" FontSize="24" FontWeight="Bold">Записи</Button>
+        <Button x:Name="Appointments" Grid.Column="0" Grid.Row="1" Margin="30" FontSize="24" FontWeight="Bold" Click="Appointments_Click">Записи</Button>
         <Button x:Name="Orders" Grid.Column="1" Grid.Row="1" Margin="30" FontSize="24" FontWeight="Bold">Заказы</Button>
         <Button x:Name="Products" Grid.Column="2" Grid.Row="1" Margin="30" FontSize="24" FontWeight="Bold" Click="Products_Click">Товары</Button>
         <Button x:Name="Manufacturers" Grid.Column="0" Grid.Row="2" Margin="30" FontSize="24" FontWeight="Bold">Производители</Button>
         <Button x:Name="ProductTypes" Grid.Column="1" Grid.Row="2" Margin="30" FontSize="24" FontWeight="Bold">Типы Товаров</Button>
         <Button x:Name="Users" Grid.Column="2" Grid.Row="2" Margin="30" FontSize="24" FontWeight="Bold" Click="Users_Click">Пользователи</Button>
+        <Button x:Name="Services" Grid.Column="1" Grid.Row="3" Margin="30" FontSize="24" FontWeight="Bold" Click="Services_Click">Услуги</Button>
     </Grid>
 </Page>

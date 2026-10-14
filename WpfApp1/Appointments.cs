@@ -15,7 +15,7 @@ namespace WpfApp1
     public partial class Appointments
     {
         public int AppointmentID { get; set; }
-        public int UserID { get; set; }
+        public Nullable<int> UserID { get; set; }
         public int ServiceID { get; set; }
         public System.DateTime Date { get; set; }
         public bool Reserved { get; set; }

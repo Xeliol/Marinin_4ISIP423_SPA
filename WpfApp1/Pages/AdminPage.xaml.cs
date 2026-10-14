@@ -47,5 +47,16 @@ namespace WpfApp1.Pages
         {
             NavigationService.Navigate(new ProductsTabPage());
         }
+
+        private void Appointments_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AppointmentsTabPage());
+
+        }
+
+        private void Services_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ServicesTabPage());
+        }
     }
 }

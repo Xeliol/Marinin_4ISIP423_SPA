@@ -69,44 +69,14 @@ namespace WpfApp1.Pages
             }
         }
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
+        private void ManageAppointmentsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService?.Navigate(new AppointmentsTabPage());
         }
 
-        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        private void ManageServicesButton_Click(object sender, RoutedEventArgs e)
         {
-            Button clickedButton = sender as Button;
-
-            ListBoxItem listBoxItem = (ListBoxItem)ServiceListBox.ContainerFromElement(clickedButton);
-
-            if (listBoxItem != null)
-            {
-                object dataItem = listBoxItem.Content;
-
-                Services prod = dataItem as Services;
-
-
-                if (Core.Context.Appointments.Where(a => a.ServiceID == prod.ServiceID && a.Reserved == true).Count() == 0)
-                {
-                    List<Appointments> apps_to_remove = Core.Context.Appointments.Where(a => a.ServiceID == prod.ServiceID).ToList();
-
-                    foreach(Appointments app in apps_to_remove)
-                    {
-                        Core.Context.Appointments.Remove(app);
-                    }
-                    Core.Context.SaveChanges();
-
-                    Core.Context.Services.Remove(prod);
-
-                    Core.Context.SaveChanges();
-
-                    var curdata = NavigationData.CurrentData as CurData;
-                    Users user = Core.Context.Users.ToList()[curdata.ID - 1];
-                    ServiceListBox.ItemsSource = user.Services.ToList();
-                } else
-                    MessageBox.Show("There are existing appointments for this service!");
-            }
+            NavigationService?.Navigate(new ServicesTabPage());
         }
     }
 }

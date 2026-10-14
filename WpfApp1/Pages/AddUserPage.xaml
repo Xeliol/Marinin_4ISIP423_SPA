@@ -36,10 +36,15 @@
 
         <TextBox x:Name="TBLogin" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" ToolTip="Введите логин" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TBPass" Grid.Row="2" Grid.Column="1" ToolTip="Введите пароль" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <ComboBox Name="cmbRole" Grid.Row="3" Grid.Column="1" SelectedValue="{Binding TypeID, UpdateSourceTrigger=PropertyChanged}" 
-                SelectedValuePath="TypeID" 
-                DisplayMemberPath="Name" 
-                ToolTip="Выберите роль" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
+        <ComboBox Name="cmbRole" 
+          Grid.Row="3" 
+          Grid.Column="1" 
+          SelectedValue="{Binding TypeID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+          SelectedValuePath="TypeID" 
+          DisplayMemberPath="Name" 
+          ToolTip="Выберите роль" 
+          Margin="10,5,50,5" 
+          VerticalContentAlignment="Center"/>
         <TextBox x:Name="TBFio" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" Grid.Column="1" ToolTip="Введите ФИО" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TBPhoto" Grid.Row="5" Grid.Column="1" ToolTip="Добавьте путь к фото" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TBPhone" Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.Column="1" ToolTip="Введите телефон" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
