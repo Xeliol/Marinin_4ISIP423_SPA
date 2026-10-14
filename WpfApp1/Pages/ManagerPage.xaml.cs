@@ -33,7 +33,7 @@ namespace WpfApp1.Pages
                 Login = "Anon",
                 Type = 0
             };
-            MessageBox.Show("Logged Out.");
+            MessageBox.Show("Выход выполнен.");
             NavigationService.Navigate(new StartPage());
         }
 

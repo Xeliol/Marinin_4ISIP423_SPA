@@ -25,14 +25,13 @@ namespace WpfApp1.Pages
             InitializeComponent();
 
             List<Users> masters = Core.Context.Users.Where(u => u.TypeID == 2).ToList();
-
             MasterListBox.ItemsSource = masters;
 
             List<string> SortItems = Core.Context.ServiceTypes.Select(t => t.Name).ToList();
-
             SortItems.Add("Пусто");
-
             SortBox.ItemsSource = SortItems;
+
+            AccountButton.Content = NavigationData.CurrentData != null ? "Профиль" : "Войти";
         }
 
         List<String> serviceTypes = Core.Context.ServiceTypes.Select(st => st.Name).ToList();
@@ -67,7 +66,19 @@ namespace WpfApp1.Pages
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //MasterListBox.ItemsSource = Core.Context.Movies.ToList().Where(p => p.Name.ToLower().Contains(SearchBox.Text.ToLower()));
+            string searchText = SearchBox.Text.ToLower().Trim();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                MasterListBox.ItemsSource = Core.Context.Users.Where(u => u.TypeID == 2).ToList();
+                return;
+            }
+
+            var filteredMasters = Core.Context.Users
+                .Where(u => u.TypeID == 2 && u.Services.Any(s => s.Name.ToLower().Contains(searchText)))
+                .ToList();
+
+            MasterListBox.ItemsSource = filteredMasters;
         }
 
         private void ProductsButton_Click(object sender, RoutedEventArgs e)

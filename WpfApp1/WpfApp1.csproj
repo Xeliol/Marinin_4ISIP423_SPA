@@ -116,9 +116,6 @@
     <Compile Include="Pages\ProductsTabPage.xaml.cs">
       <DependentUpon>ProductsTabPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ServiceEditPage.xaml.cs">
-      <DependentUpon>ServiceEditPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\ServicesTabPage.xaml.cs">
       <DependentUpon>ServicesTabPage.xaml</DependentUpon>
     </Compile>
@@ -209,10 +206,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AppointmentInfoPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\AppointmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -253,10 +246,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ServiceEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\ServicesTabPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -284,9 +273,6 @@
     </Compile>
     <Compile Include="Pages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AppointmentInfoPage.xaml.cs">
-      <DependentUpon>AppointmentInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AppointmentPage.xaml.cs">
       <DependentUpon>AppointmentPage.xaml</DependentUpon>

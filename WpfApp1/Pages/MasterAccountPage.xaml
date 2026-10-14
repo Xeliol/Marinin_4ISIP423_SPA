@@ -21,7 +21,6 @@
 
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center">Аккаунт Мастера</TextBlock>
 
-        <!-- КОЛОНКА 0: Информация о мастере -->
         <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
             <Image Source="{Binding ImagePath}" Width="Auto"/>
             <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Login, StringFormat=Логин: {0}}" HorizontalAlignment="Center"/>
@@ -30,11 +29,9 @@
             <Button x:Name="LogOutButton"  Width="100" Click="LogOutButton_Click">Выйти</Button>
         </StackPanel>
 
-        <!-- КОЛОНКА 1: Список текущих записей -->
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <TextBlock Text="Записи" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
 
-            <!-- Добавленная кнопка перехода к полноценному журналу записей -->
             <Button x:Name="ManageAppointmentsButton" 
                     Content="Управление записями" 
                     Width="180" 
@@ -66,11 +63,9 @@
             </ListBox>
         </StackPanel>
 
-        <!-- КОЛОНКА 2: Быстрый список услуг -->
         <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <TextBlock Text="Услуги" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
 
-            <!-- Кнопка перехода к менеджеру услуг -->
             <Button x:Name="ManageServicesButton" 
                     Content="Управление услугами" 
                     Width="180" 
