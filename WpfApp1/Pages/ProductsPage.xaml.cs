@@ -60,7 +60,7 @@ namespace WpfApp1.Pages
 
                     if (Core.Context.Cart.Where(c => c.UserID == user.ID).Count() == 0)
                     {
-                        Core.Context.Cart.Add(new Cart { CartID = Core.Context.Cart.Count() + 1, UserID = user.ID });
+                        Core.Context.Cart.Add(new Cart { UserID = user.ID });
                         Core.Context.SaveChanges();
                     }
 

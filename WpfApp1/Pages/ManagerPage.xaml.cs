@@ -41,5 +41,10 @@ namespace WpfApp1.Pages
         {
             NavigationService.Navigate(new UsersPage());
         }
+
+        private void Products_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductsTabPage());
+        }
     }
 }

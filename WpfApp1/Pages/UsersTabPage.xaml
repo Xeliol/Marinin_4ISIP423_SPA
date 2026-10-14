@@ -10,10 +10,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="377*"/>
             <RowDefinition Height="73*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" x:Name="DataGridUser" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid Grid.Row="1" x:Name="DataGridUser" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="50"/>
                 <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Width="70"/>
@@ -29,7 +30,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
             <Button x:Name="ButtonAdd" Padding="15" ToolTip="Добавить данные" Content="Добавить" Click="ButtonAdd_Click"/>
             <Button x:Name="ButtonDel" Padding="15" ToolTip="Удалить данные" Content="Удалить" Click="ButtonDel_Click"/>
         </StackPanel>

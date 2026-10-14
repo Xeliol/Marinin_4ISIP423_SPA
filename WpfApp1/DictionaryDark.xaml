@@ -52,11 +52,13 @@
     <Style TargetType="ComboBox">
         <Setter Property="FontFamily" Value="Open Sans" />
         <Setter Property="Background" Value="#193d57" />
+        <Setter Property="Foreground" Value="#000000"/>
         <Setter Property="ItemTemplate" Value="{StaticResource ComboBoxTextTemplate}"/>
     </Style>
 
     <Style TargetType="ComboBoxItem">
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#000000"/>
         <Style.Resources>
             <Style TargetType="TextBlock">
                 <Setter Property="Foreground" Value="#000000"/>
@@ -64,4 +66,39 @@
         </Style.Resources>
     </Style>
 
+    <Style TargetType="DataGrid">
+        <Setter Property="Background" Value="#193d57"/>
+        <Setter Property="RowBackground" Value="#193d57"/>
+        <Setter Property="AlternatingRowBackground" Value="#1c4461"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="BorderBrush" Value="#FFFFFF"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="#2c5b7d"/>
+        <Setter Property="VerticalGridLinesBrush" Value="#2c5b7d"/>
+    </Style>
+
+    <Style TargetType="DataGridCell">
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#006b80"/>
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="DataGridColumnHeader">
+        <Setter Property="Background" Value="#006b80"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="FontFamily" Value="Open Sans"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="BorderBrush" Value="#FFFFFF"/>
+        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+    </Style>
+
+    <Style TargetType="DataGridRowHeader">
+        <Setter Property="Background" Value="#193d57"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+    </Style>
 </ResourceDictionary>

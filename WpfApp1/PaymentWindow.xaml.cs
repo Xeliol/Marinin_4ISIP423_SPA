@@ -37,7 +37,6 @@ namespace WpfApp1
             CurData UserInfo = NavigationData.CurrentData as CurData;
             Orders order = new Orders
             {
-                OrderID = Core.Context.Orders.Count() + 1,
                 UserID = UserInfo.ID,
                 Delivered = false,
                 PreferedDate = SortCalendar.SelectedDate.Value,
@@ -62,7 +61,7 @@ namespace WpfApp1
                 Core.Context.SaveChanges();
             }
 
-            MessageBox.Show("Order successfully made. Check account to see status.");
+            MessageBox.Show("Заказ успешно оформлен. Статус можно проверить на странице акааунта.");
 
             this.Close();  
         }
@@ -76,17 +75,17 @@ namespace WpfApp1
         {
             if (SortCalendar.SelectedDates.Count() > 1)
             {
-                MessageBox.Show("Select only 1 date.");
+                MessageBox.Show("Выберите одну дату.");
                 SortCalendar.SelectedDate = DateTime.Now.AddDays(1);
             }
             if (SortCalendar.SelectedDate.Value.DayOfYear - DateTime.Now.DayOfYear > 7)
             {
-                MessageBox.Show("Date must be no later than 7 days ahead of now.");
+                MessageBox.Show("Дата должна быть не более чем 7 дней после текущего числа.");
                 SortCalendar.SelectedDate = DateTime.Now.AddDays(1);
             }
             if (SortCalendar.SelectedDate.Value.DayOfYear - DateTime.Now.DayOfYear < 0)
             {
-                MessageBox.Show("Date must be no later than 7 days ahead of now.");
+                MessageBox.Show("Дата должна быть не более чем 7 дней после текущего числа.");
                 SortCalendar.SelectedDate = DateTime.Now.AddDays(1);
             }
         }

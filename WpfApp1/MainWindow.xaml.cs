@@ -30,8 +30,7 @@ namespace WpfApp1
             {
                 ID = -1,
                 Login = "Anon",
-                Type = 0
-            };
+                Type = 0  };
 
             //AccountButton.Content = "Log In";
             //AccountButton.Click += AccountButton_Click;
