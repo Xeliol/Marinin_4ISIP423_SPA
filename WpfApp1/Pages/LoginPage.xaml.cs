@@ -56,6 +56,7 @@ namespace WpfApp1.Pages
                     labelPass.Visibility = Visibility.Visible;
                     LoginBox.Visibility = Visibility.Visible;
                     PassBox.Visibility = Visibility.Visible;
+                    noAccount.Visibility = Visibility.Visible;
 
                     LoginButton.Visibility = Visibility.Visible;
                     regButton.Visibility = Visibility.Visible;
@@ -70,6 +71,7 @@ namespace WpfApp1.Pages
                     labelPass.Visibility = Visibility.Hidden;
                     LoginBox.Visibility = Visibility.Hidden;
                     PassBox.Visibility = Visibility.Hidden;
+                    noAccount.Visibility = Visibility.Hidden;
 
                     regButton.Visibility = Visibility.Hidden;
                     LoginButton.Visibility = Visibility.Hidden;

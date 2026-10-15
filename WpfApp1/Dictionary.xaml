@@ -157,13 +157,12 @@
                           VerticalAlignment="Center"
                           Margin="0,0,10,0"
                           Data="M 0 0 L 3.5 3.5 L 7 0 Z" />
-
                         <Popup Name="Popup"
-                           Placement="Bottom"
-                           IsOpen="{TemplateBinding IsDropDownOpen}"
-                           AllowsTransparency="True" 
-                           Focusable="False"
-                           PopupAnimation="Fade">
+                            Placement="Bottom"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            AllowsTransparency="True" 
+                            Focusable="False"
+                            PopupAnimation="Fade">
                             <Grid Name="DropDown"
                               MinWidth="{TemplateBinding ActualWidth}"
                               MaxHeight="{TemplateBinding MaxDropDownHeight}">
