@@ -1,0 +1,58 @@
+﻿<Page x:Class="WpfApp1.Pages.ServicesPopularityPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ServicesPopularityPage">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Рейтинг востребованности услуг" 
+                   FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <DataGrid Grid.Row="1" Grid.Column="0" x:Name="DgServices" AutoGenerateColumns="False" 
+                  IsReadOnly="True" Margin="0,0,15,0" VerticalAlignment="Top" Background="White">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название услуги" Binding="{Binding ServiceName}" Width="*"/>
+                <DataGridTextColumn Header="Кол-во записей" Binding="{Binding AppointmentCount}" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Визуализация количества бронирований" Padding="10" FontSize="14" BorderThickness="0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="IcPopularityChart">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,5,0,10">
+                                <TextBlock Text="{Binding ServiceName}" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                                <Grid>
+                                    <!-- Добавлен Mode=OneWay для предотвращения XamlParseException -->
+                                    <ProgressBar Value="{Binding AppointmentCount, Mode=OneWay}" 
+                                         Maximum="{Binding ElementName=IcPopularityChart, Path=DataContext.MaxCount, Mode=OneWay}" 
+                                         Height="25" Foreground="SkyBlue" Background="#F0F0F0"/>
+
+                                    <!-- Текст с количеством поверх столбца -->
+                                    <TextBlock Text="{Binding AppointmentCount, StringFormat='Записей: {0}'}" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                       FontWeight="Bold" Foreground="Black"/>
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </GroupBox>
+    </Grid>
+</Page>
+

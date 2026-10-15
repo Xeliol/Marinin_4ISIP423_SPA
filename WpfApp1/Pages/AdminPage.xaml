@@ -30,5 +30,6 @@
         <Button x:Name="Users" Grid.Column="2" Grid.Row="2" Margin="30" FontSize="24" FontWeight="Bold" Click="Users_Click">Пользователи</Button>
         <Button x:Name="ServiceTypes" Grid.Column="0" Grid.Row="3" Margin="30" FontSize="24" FontWeight="Bold" Click="ServiceTypes_Click">Типы услуг</Button>
         <Button x:Name="Services" Grid.Column="1" Grid.Row="3" Margin="30" FontSize="24" FontWeight="Bold" Click="Services_Click">Услуги</Button>
+        <Button x:Name="Reports" Grid.Column="2" Grid.Row="3" Margin="30" FontSize="24" FontWeight="Bold" Click="Reports_Click">Отчёты/Графики</Button>
     </Grid>
 </Page>

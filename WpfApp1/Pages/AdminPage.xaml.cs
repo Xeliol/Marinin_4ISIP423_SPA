@@ -78,5 +78,10 @@ namespace WpfApp1.Pages
         {
             NavigationService.Navigate(new ServiceTypesTabPage());
         }
+
+        private void Reports_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ReportsPage());
+        }
     }
 }

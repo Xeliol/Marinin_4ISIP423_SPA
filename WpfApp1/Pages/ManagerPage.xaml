@@ -26,5 +26,6 @@
         <Button x:Name="Manufacturers" Grid.Column="2" Grid.Row="1" Margin="30" FontSize="24" FontWeight="Bold" Click="Manufacturers_Click">Производители</Button>
         <Button x:Name="ProductTypes" Grid.Column="1" Grid.Row="2" Margin="30" FontSize="24" FontWeight="Bold" Click="ProductTypes_Click">Типы Товаров</Button>
         <Button x:Name="Users" Grid.Column="0" Grid.Row="2" Margin="30" FontSize="24" FontWeight="Bold" Click="Users_Click">Пользователи</Button>
+        <Button x:Name="Reports" Grid.Column="2" Grid.Row="2" Margin="30" FontSize="24" FontWeight="Bold" Click="Reports_Click">Отчёты/Графики</Button>
     </Grid>
 </Page>
