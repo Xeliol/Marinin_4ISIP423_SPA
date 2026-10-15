@@ -29,7 +29,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <GroupBox Grid.Row="1" Grid.Column="1" Header="Визуализация количества бронирований" Padding="10" FontSize="14" BorderThickness="0">
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Визуализация количества бронирований" Padding="10" FontSize="14">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <ItemsControl x:Name="IcPopularityChart">
                     <ItemsControl.ItemTemplate>

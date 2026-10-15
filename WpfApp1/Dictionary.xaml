@@ -41,6 +41,10 @@
         <Setter Property="Background" Value="#FFFFFF"/>
     </Style>
 
+    <Style TargetType="GroupBox">
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
     <Style TargetType="DataGrid">
         <Setter Property="Background" Value="#FFFFFF"/>
         <Setter Property="RowBackground" Value="#FFFFFF"/>

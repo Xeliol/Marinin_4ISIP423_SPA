@@ -34,5 +34,15 @@ namespace WpfApp1.Pages
         {
             NavigationService.Navigate(new MastersLoadPage());
         }
+
+        private void OrdersDynamic_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrdersDynamicReportPage());
+        }
+
+        private void ProductTypes_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductTypesReportPage());
+        }
     }
 }

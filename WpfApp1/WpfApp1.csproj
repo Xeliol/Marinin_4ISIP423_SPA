@@ -134,11 +134,17 @@
     <Compile Include="Pages\MastersLoadPage.xaml.cs">
       <DependentUpon>MastersLoadPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrdersDynamicReportPage.xaml.cs">
+      <DependentUpon>OrdersDynamicReportPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrdersTabPage.xaml.cs">
       <DependentUpon>OrdersTabPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProductsTabPage.xaml.cs">
       <DependentUpon>ProductsTabPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductTypesReportPage.xaml.cs">
+      <DependentUpon>ProductTypesReportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProductTypesTabPage.xaml.cs">
       <DependentUpon>ProductTypesTabPage.xaml</DependentUpon>
@@ -298,6 +304,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\OrdersDynamicReportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\OrdersTabPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -307,6 +317,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ProductsTabPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProductTypesReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
