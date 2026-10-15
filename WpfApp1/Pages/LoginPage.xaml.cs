@@ -57,7 +57,9 @@ namespace WpfApp1.Pages
                     LoginBox.Visibility = Visibility.Visible;
                     PassBox.Visibility = Visibility.Visible;
                     noAccount.Visibility = Visibility.Visible;
+                    forgotPass.Visibility = Visibility.Visible;
 
+                    ButtonChangePassword.Visibility = Visibility.Visible;
                     LoginButton.Visibility = Visibility.Visible;
                     regButton.Visibility = Visibility.Visible;
                     return;
@@ -72,8 +74,10 @@ namespace WpfApp1.Pages
                     LoginBox.Visibility = Visibility.Hidden;
                     PassBox.Visibility = Visibility.Hidden;
                     noAccount.Visibility = Visibility.Hidden;
+                    forgotPass.Visibility = Visibility.Hidden;
 
                     regButton.Visibility = Visibility.Hidden;
+                    ButtonChangePassword.Visibility = Visibility.Hidden;
                     LoginButton.Visibility = Visibility.Hidden;
                     return;
             }
@@ -197,6 +201,11 @@ namespace WpfApp1.Pages
             {
                 e.Handled = true;
             }
+        }
+
+        private void ButtonChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new ChangePassPage());
         }
     }
 }

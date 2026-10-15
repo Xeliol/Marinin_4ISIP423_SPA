@@ -122,6 +122,9 @@
     <Compile Include="Pages\AppointmentsTabPage.xaml.cs">
       <DependentUpon>AppointmentsTabPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ChangePassPage.xaml.cs">
+      <DependentUpon>ChangePassPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ManufacturersTabPage.xaml.cs">
       <DependentUpon>ManufacturersTabPage.xaml</DependentUpon>
     </Compile>
@@ -255,6 +258,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ChangePassPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

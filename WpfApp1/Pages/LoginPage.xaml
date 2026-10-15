@@ -35,6 +35,11 @@
                 <Button x:Name="regButton" Margin="5 10" Click="Button_Click">Зарегистрируйтесь!</Button>
             </StackPanel>
 
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock x:Name="forgotPass" FontSize="12" Text="Хотите поменять пароль?" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button x:Name="ButtonChangePassword" Margin="5 10" Width="120" Click="ButtonChangePassword_Click">Сменить пароль</Button>
+            </StackPanel>
+
             <Button x:Name="LoginButton" Margin="0 10" Width="100" Click="LoginButton_Click">Войти</Button>
 
             <Label Content="Капча:"
