@@ -21,12 +21,55 @@
             <ListBox x:Name="CartListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 30 0 0" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Height="100" Orientation="Horizontal">
-                            <Image Source="{Binding ImagePath}" Width="120"/>
-                            <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Name}" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{Binding Price, StringFormat={}{0} Руб.}" Margin="10" HorizontalAlignment="Center" FontSize="22"/>
-                            <Button Margin="5" Width="50" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Foreground="White" Background="#dd4842" Click="RemoveButton_Click">x</Button>
-                        </StackPanel>
+                        <Grid Height="110" Margin="5" HorizontalAlignment="Stretch" Width="750">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="220"/>
+                                <ColumnDefinition Width="310"/>
+                                <ColumnDefinition Width="90"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding ImagePath}" Width="120" Height="100" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="1" FontSize="18" FontWeight="Bold" Text="{Binding Name}" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="10,0"/>
+
+                            <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0">
+                                <TextBlock Foreground="#dd4842" FontSize="15">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Text" Value="{Binding Price, StringFormat={}{0} Руб.}"/>
+                                            <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Sale}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <TextBlock FontSize="18" FontWeight="Bold">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                            <Setter Property="Text">
+                                                <Setter.Value>
+                                                    <MultiBinding StringFormat="Скидка: {0}% Цена: {1} Руб.">
+                                                        <Binding Path="Sale" />
+                                                        <Binding Path="FinalPrice" />
+                                                    </MultiBinding>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Sale}" Value="0">
+                                                    <Setter Property="Text" Value="{Binding Price, StringFormat={}{0} Руб.}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                            <Button Grid.Column="3" Width="50" Height="50" FontSize="28" FontWeight="Bold"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    Foreground="White" Background="#dd4842" Click="RemoveButton_Click">x</Button>
+                        </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 <ListBox.ItemsPanel>
@@ -35,7 +78,7 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
-            <TextBlock x:Name="Price" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center">Итоговая цена:</TextBlock>
+            <TextBlock x:Name="Price" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" Margin="0,20,0,0">Итоговая цена:</TextBlock>
             <Button Height="50" Width="100" Click="Button_Click" FontSize="22" Margin="10">Заказать</Button>
         </StackPanel>
     </Grid>

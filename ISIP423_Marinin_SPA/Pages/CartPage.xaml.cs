@@ -67,12 +67,12 @@ namespace ISIP423_Marinin_SPA.Pages
             {
                 prods.Add(pc.Products);
 
-                summ += pc.Products.Price;
+                summ += Convert.ToDouble(pc.Products.FinalPrice);
             }
 
             CartListBox.ItemsSource = prods;
 
-            Price.Text = "Итоговая цена: " + summ +" Руб.";
+            Price.Text = "Итоговая цена: " + summ + " Руб.";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
