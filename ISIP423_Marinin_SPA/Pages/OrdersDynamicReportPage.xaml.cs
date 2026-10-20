@@ -37,7 +37,7 @@ namespace ISIP423_Marinin_SPA.Pages
             WfHost.Child = ChartOrders;
 
             CmbDiagram.ItemsSource = Enum.GetValues(typeof(SeriesChartType));
-            CmbDiagram.SelectedItem = SeriesChartType.Line;
+            CmbDiagram.SelectedItem = SeriesChartType.Column;
 
             LoadOrdersData();
         }
