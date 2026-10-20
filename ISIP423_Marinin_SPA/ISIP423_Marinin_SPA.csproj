@@ -437,11 +437,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\default.jpg" />
-    <Resource Include="images\Miles.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\hinako.png" />
-    <Resource Include="images\purpleGuy.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\ProductPlaceholder.png" />
