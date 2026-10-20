@@ -18,6 +18,6 @@
             Grid.Row="2"
             Margin="20"
         VerticalAlignment="Bottom"/>
-        <Button x:Name="StyleButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Height="30" Content="☼" Margin="10 10 10 50" Click="StyleButton_Click"></Button>
+        <Button x:Name="StyleButton" ToolTip="Сменить тему" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30" Height="30" Content="☼" Margin="10 10 10 50" Click="StyleButton_Click"></Button>
     </Grid>
 </Window>
