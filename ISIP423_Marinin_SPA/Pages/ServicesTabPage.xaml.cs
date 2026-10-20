@@ -26,7 +26,7 @@ namespace ISIP423_Marinin_SPA.Pages
                     .Where(x => x.MasterID == user.ID)
                     .ToList();
             }
-            else // Админ (TypeID == 1) видит абсолютно всё
+            else
             {
                 DataGridServices.ItemsSource = Core.Context.Services.ToList();
             }
@@ -55,22 +55,34 @@ namespace ISIP423_Marinin_SPA.Pages
                 return;
             }
 
-            if (MessageBox.Show($"Вы точно хотите удалить выбранные услуги ({servicesForRemoving.Count} шт.)?", "Внимание",
+            if (MessageBox.Show($"Вы точно хотите удалить выбранные услуги ({servicesForRemoving.Count} шт.) и все связанные с ними записи?", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
+                    foreach (var service in servicesForRemoving)
+                    {
+                        var relatedAppointments = Core.Context.Appointments
+                            .Where(a => a.ServiceID == service.ServiceID)
+                            .ToList();
+
+                        Core.Context.Appointments.RemoveRange(relatedAppointments);
+                    }
+
                     Core.Context.Services.RemoveRange(servicesForRemoving);
+
                     Core.Context.SaveChanges();
+
                     MessageBox.Show("Данные успешно удалены!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     UpdateData();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Не удалось удалить записи. Возможно, они используются в таблице Записей.\nОшибка: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Не удалось выполнить каскадное удаление.\nОшибка: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
+
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
