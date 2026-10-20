@@ -52,7 +52,8 @@ namespace ISIP423_Marinin_SPA.Pages
             }
 
             _currentOrder.UserID = (int)cmbUser.SelectedValue;
-            _currentOrder.PaymentTypeID = (int)cmbPaymentType.SelectedValue;
+            _currentOrder.UserID = Convert.ToInt32(cmbUser.SelectedValue);
+            _currentOrder.PaymentTypeID = Convert.ToInt32(cmbPaymentType.SelectedValue);
 
             if (_isNewOrder)
             {

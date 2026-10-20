@@ -40,17 +40,17 @@
                     ToolTip="Выберите дату" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
 
         <ComboBox Name="cmbPaymentType" 
-                  Grid.Row="3" Grid.Column="1" 
-                  SelectedValue="{Binding PaymentTypeID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                  SelectedValuePath="PaymentTypeID" 
-                  DisplayMemberPath="Name" 
-                  ToolTip="Выберите тип оплаты" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
+          Grid.Row="3" Grid.Column="1" 
+          SelectedValue="{Binding PaymentTypeID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+          SelectedValuePath="TypeID"
+          DisplayMemberPath="Name" 
+          ToolTip="Выберите тип оплаты" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
 
         <CheckBox Name="cbDelivered" 
-                  Content="Доставлено" 
-                  Grid.Row="4" Grid.Column="1" 
-                  IsChecked="{Binding Delivered, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                  FontSize="16" Margin="10,5,50,5" VerticalAlignment="Center"/>
+          Content="Доставлено" 
+          Grid.Row="4" Grid.Column="1" 
+          IsChecked="{Binding Delivered, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+          FontSize="16" Margin="10,5,50,5" VerticalAlignment="Center"/>
 
         <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,20">
             <Button x:Name="ButtonSave" Content="Сохранить" Width="150" Height="35" Margin="10,0" Click="ButtonSave_Click"/>
