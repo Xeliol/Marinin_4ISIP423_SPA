@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace ISIP423_Marinin_SPA.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для ManagerPage.xaml
+    /// </summary>
+    public partial class ManagerPage : Page
+    {
+        public ManagerPage()
+        {
+            InitializeComponent();
+        }
+
+        private void LogOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationData.CurrentData = new CurData
+            {
+                ID = -1,
+                Login = "Anon",
+                Type = 0
+            };
+            MessageBox.Show("Выход выполнен.");
+            NavigationService.Navigate(new StartPage());
+        }
+
+        private void Users_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UsersPage());
+        }
+
+        private void Products_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductsTabPage());
+        }
+
+        private void Orders_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrdersTabPage());
+        }
+
+        private void Manufacturers_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ManufacturersTabPage());
+        }
+
+        private void ProductTypes_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductTypesTabPage());
+        }
+
+        private void Reports_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ReportsPage());
+        }
+    }
+}

@@ -1,0 +1,98 @@
+﻿<Page x:Class="ISIP423_Marinin_SPA.Pages.MasterAccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ISIP423_Marinin_SPA.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MasterAccountPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center">Аккаунт Мастера</TextBlock>
+
+        <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
+            <Image Source="{Binding ImagePath}" Width="Auto"/>
+            <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Login, StringFormat=Логин: {0}}" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding Phone, StringFormat=Телефон: {0}}" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding Email, StringFormat=E-mail: {0}}" HorizontalAlignment="Center"/>
+            <Button x:Name="LogOutButton"  Width="100" Click="LogOutButton_Click">Выйти</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <TextBlock Text="Записи" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
+
+            <Button x:Name="ManageAppointmentsButton" 
+                    Content="Управление записями" 
+                    Width="180" 
+                    Height="30" 
+                    Margin="0,15,0,0" 
+                    Click="ManageAppointmentsButton_Click" 
+                    HorizontalAlignment="Center" 
+                    ToolTip="Открыть менеджер записей в табличном виде"/>
+
+            <ListBox x:Name="SessionListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 15 0 0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <StackPanel Height="Auto" Width="Auto" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Date, StringFormat={}{0:d MMMM}}" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}" HorizontalAlignment="Center" FontSize="8" Foreground="Gray"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Date, StringFormat={}{0:HH:mm}}" Margin="10" HorizontalAlignment="Center" FontSize="22"/>
+                            <TextBlock Text="{Binding Users.Name}" Margin="10" HorizontalAlignment="Center"/>
+                            <Button Width="100" Click="FinishButton_Click">Закрыть</Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <TextBlock Text="Услуги" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
+
+            <Button x:Name="ManageServicesButton" 
+                    Content="Управление услугами" 
+                    Width="180" 
+                    Height="30" 
+                    Margin="0,15,0,0" 
+                    Click="ManageServicesButton_Click" 
+                    HorizontalAlignment="Center" 
+                    ToolTip="Открыть менеджер услуг в табличном виде"/>
+
+            <ListBox x:Name="ServiceListBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0 15 0 0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Height="Auto" Width="Auto" Orientation="Horizontal">
+                            <StackPanel Height="Auto" Width="Auto" Margin="10">
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Description}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Price, StringFormat={}{0} Руб.}" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Page>

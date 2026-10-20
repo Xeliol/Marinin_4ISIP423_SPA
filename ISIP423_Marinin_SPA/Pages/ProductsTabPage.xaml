@@ -1,0 +1,42 @@
+﻿<Page x:Class="ISIP423_Marinin_SPA.Pages.ProductsTabPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ISIP423_Marinin_SPA.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductsTabPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="377*"/>
+            <RowDefinition Height="73*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="1" x:Name="DataGridProducts" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="150"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding ProductTypes.Name}" Width="100"/>
+                <DataGridTextColumn Header="Производитель" Binding="{Binding Manufacturers.Name}" Width="120"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="70"/>
+                <DataGridTextColumn Header="Скидка" Binding="{Binding Sale}" Width="60"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="200"/>
+                <DataGridTextColumn Header="Фото" Binding="{Binding ImagePath}" Width="80"/>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ButtonEdit" Content="Редактировать" ToolTip="Редактировать данные" Click="ButtonEdit_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button x:Name="ButtonAdd" Padding="15" ToolTip="Добавить данные" Content="Добавить" Click="ButtonAdd_Click"/>
+            <Button x:Name="ButtonDel" Padding="15" ToolTip="Удалить данные" Content="Удалить" Click="ButtonDel_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
