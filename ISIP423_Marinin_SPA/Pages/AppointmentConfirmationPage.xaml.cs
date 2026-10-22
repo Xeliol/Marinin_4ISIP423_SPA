@@ -38,14 +38,23 @@ namespace ISIP423_Marinin_SPA.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Appointments cur_app = Core.Context.Appointments.First(a => a.AppointmentID == appointment.AppointmentID);
             CurData cur_user = NavigationData.CurrentData as CurData;
-            cur_app.UserID = cur_user.ID;
-            cur_app.Reserved = true;
+
+            Appointments newAppointment = new Appointments
+            {
+                UserID = cur_user.ID,
+                ServiceID = appointment.ServiceID,
+                Date = appointment.Date,
+                Reserved = true
+            };
+
+            Core.Context.Appointments.Add(newAppointment);
+
             Core.Context.SaveChanges();
 
             MessageBox.Show("Запись прошла успешно!");
             NavigationService.Navigate(new AccountPage());
         }
+
     }
 }

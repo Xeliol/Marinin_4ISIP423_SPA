@@ -17,14 +17,19 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+
+        <!-- Изменено: привязка идет к свойству Services объекта Appointments -->
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center" Text="{Binding Services.Name}">Подтверждение</TextBlock>
+
         <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top">
+            <!-- Отображаем данные мастера, привязанного к услуге -->
             <Image Source="{Binding Services.Users.ImagePath}" Width="Auto"/>
             <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Services.Users.Name}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Services.Users.Phone, StringFormat=Телефон: {0}}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Services.Users.Email, StringFormat=E-mail: {0}}" HorizontalAlignment="Center"/>
             <Button Width="120" Click="MasterButton_Click">Страница мастера</Button>
         </StackPanel>
+
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <TextBlock Text="Информация об услуге" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
             <StackPanel>
