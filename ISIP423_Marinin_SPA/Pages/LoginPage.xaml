@@ -16,78 +16,75 @@
 
         <TextBlock Grid.Row="0" FontSize="24" TextAlignment="Center" FontWeight="Bold" VerticalAlignment="Center">Вход</TextBlock>
 
-        <StackPanel Grid.Row="1" Width="320" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Viewbox Grid.Row="1" Stretch="Uniform" MaxHeight="800" VerticalAlignment="Center">
+            <StackPanel Width="320" VerticalAlignment="Center">
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Вход" HorizontalAlignment="Center"/>
+                <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock x:Name="labelLogin" FontSize="18" Text="Логин: " HorizontalAlignment="Center"/>
+                    <TextBox x:Name="LoginBox" Width="200" ToolTip="Введите логин"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock x:Name="labelPass" FontSize="18" Text="Пароль: " HorizontalAlignment="Center"/>
+                    <PasswordBox x:Name="PassBox" Width="200" ToolTip="Введите пароль"></PasswordBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock x:Name="noAccount" FontSize="12" Text="Нет аккаунта?" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="regButton" Margin="5 10" Click="Button_Click">Зарегистрируйтесь!</Button>
+                </StackPanel>
 
-            <TextBlock FontSize="18" FontWeight="Bold" Text="Вход" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock x:Name="forgotPass" FontSize="12" Text="Хотите поменять пароль?" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button x:Name="ButtonChangePassword" Margin="5 10" Width="120" Click="ButtonChangePassword_Click">Сменить пароль</Button>
+                </StackPanel>
 
-            <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock x:Name="labelLogin" FontSize="18" Text="Логин: " HorizontalAlignment="Center"/>
-                <TextBox x:Name="LoginBox" Width="200" ToolTip="Введите логин"></TextBox>
+                <Button x:Name="LoginButton" Margin="0 10" Width="100" Click="LoginButton_Click">Войти</Button>
+
+                <Label Content="Капча:"
+                       Visibility="Hidden"
+                       Name="labelCaptcha"
+                       FontSize="16"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0" />
+
+                <TextBox
+                    CommandManager.PreviewExecuted="textBox_PreviewExecuted"
+                    ContextMenu="{x:Null}"
+                    Visibility="Hidden"
+                    x:Name="captcha"
+                    Height="42"
+                    Foreground="Red"
+                    FontStyle="Italic"
+                    FontWeight="Heavy"
+                    Width="156"
+                    Background="{x:Null}"
+                    FontStretch="UltraCondensed"
+                    IsReadOnly="True"
+                    HorizontalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontSize="20"
+                    Margin="0 5"/>
+
+                <TextBox
+                    Visibility="Hidden"
+                    x:Name="captchaInput"
+                    HorizontalAlignment="Center"
+                    Height="34"
+                    TextWrapping="Wrap"
+                    Text=""
+                    Width="160" 
+                    Margin="0 5"/>
+
+                <Button x:Name="submitCaptcha"
+                    Visibility="Hidden"
+                    Height="34"
+                    Content="Подтвердить"
+                    ToolTip="Подтвердить ввод капчи"
+                    HorizontalAlignment="Center"
+                    Width="120"
+                    Click="submitCaptcha_Click" 
+                    Margin="0 5"/>
             </StackPanel>
-
-            <StackPanel Margin="0 10" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock x:Name="labelPass" FontSize="18" Text="Пароль: " HorizontalAlignment="Center"/>
-                <PasswordBox x:Name="PassBox" Width="200" ToolTip="Введите пароль"></PasswordBox>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock x:Name="noAccount" FontSize="12" Text="Нет аккаунта?" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button x:Name="regButton" Margin="5 10" Click="Button_Click">Зарегистрируйтесь!</Button>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock x:Name="forgotPass" FontSize="12" Text="Хотите поменять пароль?" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button x:Name="ButtonChangePassword" Margin="5 10" Width="120" Click="ButtonChangePassword_Click">Сменить пароль</Button>
-            </StackPanel>
-
-            <Button x:Name="LoginButton" Margin="0 10" Width="100" Click="LoginButton_Click">Войти</Button>
-
-            <Label Content="Капча:"
-                   Visibility="Hidden"
-                   Name="labelCaptcha"
-                   FontSize="16"
-                   HorizontalAlignment="Center"
-                   Margin="0 10 0 0" />
-
-            <TextBox
-                CommandManager.PreviewExecuted="textBox_PreviewExecuted"
-                ContextMenu="{x:Null}"
-                Visibility="Hidden"
-                x:Name="captcha"
-                Height="42"
-                Foreground="Red"
-                FontStyle="Italic"
-                FontWeight="Heavy"
-                Width="156"
-                Background="{x:Null}"
-                FontStretch="UltraCondensed"
-                IsReadOnly="True"
-                HorizontalContentAlignment="Center"
-                HorizontalAlignment="Center"
-                VerticalContentAlignment="Center"
-                FontSize="20"
-                Margin="0 5"/>
-
-            <TextBox
-                Visibility="Hidden"
-                x:Name="captchaInput"
-                HorizontalAlignment="Center"
-                Height="34"
-                TextWrapping="Wrap"
-                Text=""
-                Width="160" 
-                Margin="0 5"/>
-
-            <Button x:Name="submitCaptcha"
-                Visibility="Hidden"
-                Height="34"
-                Content="Подтвердить"
-                ToolTip="Подтвердить ввод капчи"
-                HorizontalAlignment="Center"
-                Width="120"
-                Click="submitCaptcha_Click" 
-                Margin="0 5"/>
-
-        </StackPanel>
+        </Viewbox>
     </Grid>
 </Page>

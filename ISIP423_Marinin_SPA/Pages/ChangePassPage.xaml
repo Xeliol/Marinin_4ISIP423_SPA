@@ -16,29 +16,30 @@
 
         <TextBlock Grid.Row="0" FontSize="24" TextAlignment="Center" FontWeight="Bold" VerticalAlignment="Center">Смена пароля</TextBlock>
 
-        <StackPanel Grid.Row="1" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Margin="0 8" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock FontSize="16" Text="Логин: " VerticalAlignment="Center"/>
-                <TextBox x:Name="TbLogin" Width="200" Height="25"></TextBox>
-            </StackPanel>
-            <StackPanel Margin="0 8" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock FontSize="16" Text="Текущий пароль: " VerticalAlignment="Center"/>
-                <PasswordBox x:Name="CurrentPasswordBox" Width="200" Height="25"></PasswordBox>
-            </StackPanel>
+        <Viewbox Grid.Row="1" Stretch="Uniform" MaxHeight="600">
+            <StackPanel Width="350">
+                <StackPanel Margin="0 8" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock FontSize="16" Text="Логин: " VerticalAlignment="Center"/>
+                    <TextBox x:Name="TbLogin" Width="200" Height="25"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="0 8" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock FontSize="16" Text="Текущий пароль: " VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="CurrentPasswordBox" Width="200" Height="25"></PasswordBox>
+                </StackPanel>
 
-            <StackPanel Margin="0 8" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock FontSize="16" Text="Новый пароль: " VerticalAlignment="Center"/>
-                <PasswordBox x:Name="NewPasswordBox" Width="200" Height="25"></PasswordBox>
+                <StackPanel Margin="0 8" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock FontSize="16" Text="Новый пароль: " VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="NewPasswordBox" Width="200" Height="25"></PasswordBox>
+                </StackPanel>
+
+                <StackPanel Margin="0 8" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock FontSize="16" Text="Подтверждение: " VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="ConfirmPasswordBox" Width="200" Height="25"></PasswordBox>
+                </StackPanel>
+
+                <Button x:Name="BtnSave" Margin="0 15" Width="150" Height="30" Content="Сохранить изменения" Click="BtnSave_Click" HorizontalAlignment="Center"></Button>
+                <Button x:Name="BtnCancel" Width="150" Height="25" Content="Отмена" Click="BtnCancel_Click" HorizontalAlignment="Center"></Button>
             </StackPanel>
-
-            <StackPanel Margin="0 8" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock FontSize="16" Text="Подтверждение: " VerticalAlignment="Center"/>
-                <PasswordBox x:Name="ConfirmPasswordBox" Width="200" Height="25"></PasswordBox>
-            </StackPanel>
-
-            <Button x:Name="BtnSave" Margin="0 15" Width="150" Height="30" Content="Сохранить изменения" Click="BtnSave_Click"></Button>
-            <Button x:Name="BtnCancel" Width="150" Height="25" Content="Отмена" Click="BtnCancel_Click"></Button>
-
-        </StackPanel>
+        </Viewbox>
     </Grid>
 </Page>

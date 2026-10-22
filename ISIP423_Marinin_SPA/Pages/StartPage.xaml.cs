@@ -30,8 +30,6 @@ namespace ISIP423_Marinin_SPA.Pages
             List<string> SortItems = Core.Context.ServiceTypes.Select(t => t.Name).ToList();
             SortItems.Add("Пусто");
             SortBox.ItemsSource = SortItems;
-
-            AccountButton.Content = NavigationData.CurrentData != null ? "Профиль" : "Войти";
         }
 
         List<String> serviceTypes = Core.Context.ServiceTypes.Select(st => st.Name).ToList();
