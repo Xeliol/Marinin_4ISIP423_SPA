@@ -8,6 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductsTabPage" IsVisibleChanged="Page_IsVisibleChanged">
 
+    <Page.Resources>
+        <local:ImagePathConverter x:Key="ImgConverter"/>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -18,7 +22,7 @@
         <TextBlock Grid.Row="0" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Text="Товары"/>
 
         <Border Grid.Row="1" BorderThickness="1" BorderBrush="Gray" Margin="10">
-            <DataGrid x:Name="DataGridProducts" AutoGenerateColumns="False" IsReadOnly="True" BorderThickness="0">
+            <DataGrid x:Name="DataGridProducts" AutoGenerateColumns="False" IsReadOnly="True" BorderThickness="0" RowHeight="50">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="150"/>
                     <DataGridTextColumn Header="Тип" Binding="{Binding ProductTypes.Name}" Width="100"/>
@@ -26,7 +30,15 @@
                     <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="70"/>
                     <DataGridTextColumn Header="Скидка" Binding="{Binding Sale}" Width="60"/>
                     <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="200"/>
-                    <DataGridTextColumn Header="Фото" Binding="{Binding ImagePath}" Width="80"/>
+                    <DataGridTemplateColumn Header="Фото" Width="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImagePath, Converter={StaticResource ImgConverter}}"
+                                       Width="40" Height="40" Stretch="Uniform"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

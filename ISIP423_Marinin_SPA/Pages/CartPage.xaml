@@ -8,6 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CartPage">
 
+    <Page.Resources>
+        <local:ImagePathConverter x:Key="ImgConverter"/>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -30,7 +34,7 @@
                                         <ColumnDefinition Width="90"/>
                                     </Grid.ColumnDefinitions>
                                     <Border Grid.Column="0" BorderThickness="1" BorderBrush="LightGray" Width="120" Height="100" VerticalAlignment="Center">
-                                        <Image Source="{Binding ImagePath}" Stretch="UniformToFill"/>
+                                        <Image Source="{Binding ImagePath, Converter={StaticResource ImgConverter}}" Stretch="UniformToFill"/>
                                     </Border>
                                     <TextBlock Grid.Column="1" FontSize="16" FontWeight="Bold" Text="{Binding Name}"
                                                VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="10,0"/>

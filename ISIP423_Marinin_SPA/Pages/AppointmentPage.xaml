@@ -9,6 +9,10 @@
       Title="AppointmentPage"
       Language="ru-RU">
 
+    <Page.Resources>
+        <local:ImagePathConverter x:Key="ImgConverter"/>
+    </Page.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220"></ColumnDefinition>
@@ -23,7 +27,18 @@
         <Grid Grid.Column="0" Grid.Row="1" Margin="10 10 10 10">
             <StackPanel VerticalAlignment="Top">
                 <Border BorderThickness="1" BorderBrush="LightGray" Margin="0 0 0 10" Height="180">
-                    <Image Source="{Binding Users.ImagePath}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Source="{Binding Users.ImagePath, Converter={StaticResource ImgConverter}}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Border CornerRadius="20"
+                        Background="Black"
+                        Width="{Binding RelativeSource={RelativeSource AncestorType=Image}, Path=ActualWidth}"
+                        Height="{Binding RelativeSource={RelativeSource AncestorType=Image}, Path=ActualHeight}"/>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Image.OpacityMask>
+                    </Image>
                 </Border>
                 <TextBlock FontSize="16" FontWeight="Bold" Text="{Binding Users.Name}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0 0 0 5"/>
                 <TextBlock Text="{Binding Users.Phone, StringFormat=Тел: {0}}" HorizontalAlignment="Center" Margin="0 0 0 2"/>

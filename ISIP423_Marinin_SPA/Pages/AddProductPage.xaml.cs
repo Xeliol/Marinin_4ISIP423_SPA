@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Win32;
 
 namespace ISIP423_Marinin_SPA.Pages
 {
@@ -10,6 +11,7 @@ namespace ISIP423_Marinin_SPA.Pages
     {
         private Products _currentProduct = new Products();
         private bool _isNewProduct = true;
+        private string _selectedImageSourcePath = null;
 
         public AddProductPage(Products selectedProduct)
         {
@@ -22,12 +24,38 @@ namespace ISIP423_Marinin_SPA.Pages
             {
                 _currentProduct = selectedProduct;
                 _isNewProduct = false;
-                TBPhoto.Text = _currentProduct.ImagePath;
+                TbPhotoStatus.Text = string.IsNullOrWhiteSpace(_currentProduct.ImagePath)
+                    ? "Не выбрано" : System.IO.Path.GetFileName(_currentProduct.ImagePath);
             }
 
             DataContext = _currentProduct;
         }
 
+        private void ButtonSelectPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "Изображения|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.tif;*.tiff",
+                Title = "Выберите изображение"
+            };
+
+            if (dialog.ShowDialog() != true) return;
+
+            try
+            {
+                _selectedImageSourcePath = dialog.FileName;
+                TbPhotoStatus.Text = System.IO.Path.GetFileName(_selectedImageSourcePath);
+                PhotoPreview.Source = ImageHelper.CreateSquareBitmap(
+                    ImageHelper.LoadBitmap(_selectedImageSourcePath), 250);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось загрузить изображение: {ex.Message}");
+                _selectedImageSourcePath = null;
+                PhotoPreview.Source = null;
+                TbPhotoStatus.Text = "Не выбрано";
+            }
+        }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
@@ -60,7 +88,23 @@ namespace ISIP423_Marinin_SPA.Pages
 
             _currentProduct.TypeID = (int)cmbType.SelectedValue;
             _currentProduct.ManufacturerID = (int)cmbManufacturer.SelectedValue;
-            _currentProduct.ImagePath = string.IsNullOrWhiteSpace(TBPhoto.Text) ? "/images/ProductPlaceholder.png" : TBPhoto.Text;
+
+            if (!string.IsNullOrWhiteSpace(_selectedImageSourcePath))
+            {
+                try
+                {
+                    _currentProduct.ImagePath = ImageHelper.ProcessAndSaveImage(_selectedImageSourcePath, 250);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при сохранении изображения: {ex.Message}");
+                    return;
+                }
+            }
+            else if (_isNewProduct && string.IsNullOrWhiteSpace(_currentProduct.ImagePath))
+            {
+                _currentProduct.ImagePath = "images/ProductPlaceholder.png";
+            }
 
             if (_isNewProduct)
             {
@@ -87,7 +131,9 @@ namespace ISIP423_Marinin_SPA.Pages
             TBPrice.Text = "0";
             TBSale.Text = "0";
             TBDescription.Text = "";
-            TBPhoto.Text = "";
+            _selectedImageSourcePath = null;
+            PhotoPreview.Source = null;
+            TbPhotoStatus.Text = "Не выбрано";
             cmbType.SelectedIndex = -1;
             cmbManufacturer.SelectedIndex = -1;
             _isNewProduct = true;

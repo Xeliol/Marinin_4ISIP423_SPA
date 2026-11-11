@@ -28,7 +28,18 @@
         <Border Grid.Column="0" Grid.Row="1" BorderThickness="1" BorderBrush="Gray" Padding="10" Margin="10">
             <StackPanel x:Name="MoviePanel" VerticalAlignment="Top">
                 <Border BorderThickness="1" BorderBrush="LightGray" Height="180" Margin="0 0 0 10">
-                    <Image x:Name="UserPhotoImage" Source="{Binding ImagePath, Converter={StaticResource ImgConverter}}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image x:Name="UserPhotoImage" Source="{Binding ImagePath, Converter={StaticResource ImgConverter}}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Border CornerRadius="20"
+                        Background="Black"
+                        Width="{Binding RelativeSource={RelativeSource AncestorType=Image}, Path=ActualWidth}"
+                        Height="{Binding RelativeSource={RelativeSource AncestorType=Image}, Path=ActualHeight}"/>
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Image.OpacityMask>
+                    </Image>
                 </Border>
                 <Button x:Name="ChangePhotoButton" Content="Изменить фото" Width="150" Height="28" HorizontalAlignment="Center" Margin="0 0 0 10" Click="ChangePhotoButton_Click"/>
                 <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Login, StringFormat=Логин: {0}}" HorizontalAlignment="Center"/>
