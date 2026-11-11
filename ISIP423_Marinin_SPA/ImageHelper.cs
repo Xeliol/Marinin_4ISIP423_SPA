@@ -8,12 +8,16 @@ using System.Windows.Media.Imaging;
 
 namespace ISIP423_Marinin_SPA.Pages
 {
-    /// <summary>
-    /// Общие операции: загрузка, кадрирование по центру в квадрат, сохранение в images/.
-    /// </summary>
     public static class ImageHelper
     {
         public const int DefaultSize = 250;
+
+        /// <summary>Возвращает путь к корневой папке проекта (на 2 уровня выше bin\Debug).</summary>
+        public static string GetProjectDirectory()
+        {
+            return Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent?.Parent?.FullName
+                   ?? AppDomain.CurrentDomain.BaseDirectory;
+        }
 
         public static BitmapImage LoadBitmap(string path)
         {
@@ -26,7 +30,6 @@ namespace ISIP423_Marinin_SPA.Pages
             return bmp;
         }
 
-        /// <summary>Берёт центральный квадрат и масштабирует до targetSize×targetSize.</summary>
         public static BitmapSource CreateSquareBitmap(BitmapSource source, int targetSize = DefaultSize)
         {
             int side = Math.Min(source.PixelWidth, source.PixelHeight);
@@ -45,15 +48,16 @@ namespace ISIP423_Marinin_SPA.Pages
         }
 
         /// <summary>
-        /// Загружает файл, кадрирует до квадрата size×size, сохраняет PNG в images/
-        /// рядом с exe и возвращает относительный путь "/images/xxx.png".
+        /// Сохраняет изображение ТОЛЬКО в папку проекта (ProjectDir\images\...)
+        /// и возвращает относительный путь "images/xxx.png".
         /// </summary>
         public static string ProcessAndSaveImage(string sourcePath, int size = DefaultSize)
         {
             var source = LoadBitmap(sourcePath);
             var squared = CreateSquareBitmap(source, size);
 
-            string imagesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images");
+            string projectDir = GetProjectDirectory();
+            string imagesDir = Path.Combine(projectDir, "images");
             Directory.CreateDirectory(imagesDir);
 
             string fileName = Guid.NewGuid().ToString("N") + ".png";
@@ -67,17 +71,16 @@ namespace ISIP423_Marinin_SPA.Pages
             return "/images/" + fileName;
         }
 
-        /// <summary>"/images/x.png" -> полный путь на диске (в папке приложения).</summary>
+        /// <summary>Преобразует "images/x.png" или "/images/x.png" в полный путь в папке проекта.</summary>
         public static string GetFullPathFromRelative(string imagePath)
         {
             if (string.IsNullOrWhiteSpace(imagePath)) return null;
-            if (!imagePath.StartsWith("/")) return imagePath; // уже абсолютный
-            return Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory,
-                imagePath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
+            if (Path.IsPathRooted(imagePath) && !imagePath.StartsWith("/")) return imagePath;
+
+            string cleanRelative = imagePath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar);
+            return Path.Combine(GetProjectDirectory(), cleanRelative);
         }
 
-        /// <summary>Загружает относительный путь и возвращает уже квадратный 250×250 для превью.</summary>
         public static BitmapSource LoadPreviewFromRelative(string imagePath, int size = DefaultSize)
         {
             string fullPath = GetFullPathFromRelative(imagePath);
@@ -91,7 +94,6 @@ namespace ISIP423_Marinin_SPA.Pages
         }
     }
 
-    /// <summary>Конвертер для XAML: строка ImagePath -> BitmapImage. Работает с runtime-файлами.</summary>
     public class ImagePathConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

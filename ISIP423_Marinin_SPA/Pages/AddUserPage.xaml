@@ -8,6 +8,10 @@
       Height="auto" Width="800"
       Title="AddUserPage">
 
+    <Page.Resources>
+        <local:ImagePathConverter x:Key="ImgConverter"/>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -63,7 +67,8 @@
                             </StackPanel>
                             <TextBlock Text="Изображение будет приведено к квадратному формату 250×250" FontSize="11" Foreground="Gray" Margin="0 5 0 0" TextWrapping="Wrap"/>
                             <Border BorderThickness="1" BorderBrush="LightGray" Width="250" Height="250" Margin="0 8 0 0" HorizontalAlignment="Left">
-                                <Image x:Name="PhotoPreview" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding ImagePath}"/>
+                                <Image x:Name="PhotoPreview" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                       Source="{Binding ImagePath, Converter={StaticResource ImgConverter}}"/>
                             </Border>
                         </StackPanel>
                     </StackPanel>
