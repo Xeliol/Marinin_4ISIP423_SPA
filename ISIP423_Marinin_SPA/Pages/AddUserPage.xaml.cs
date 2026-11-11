@@ -35,7 +35,7 @@ namespace ISIP423_Marinin_SPA.Pages
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "Изображения|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.tif;*.tiff",
+                Filter = "Изображения|*.jpg;*.jpeg;*.jfif;*.png;*.bmp;*.gif;*.tif;*.tiff",
                 Title = "Выберите изображение"
             };
 
