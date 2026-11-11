@@ -1,58 +1,78 @@
 ﻿<Page x:Class="ISIP423_Marinin_SPA.Pages.AddUserPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:ISIP423_Marinin_SPA.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="800"
+      mc:Ignorable="d"
+      Height="auto" Width="800"
       Title="AddUserPage">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Логин:" Grid.Row="1" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Пароль:" Grid.Row="2" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Роль:" Grid.Row="3" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="ФИО:" Grid.Row="4" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Фото (необязательно):" Grid.Row="5" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Телефон:" Grid.Row="6" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Почта (необязательно):" Grid.Row="7" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="0" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Text="Пользователь"/>
 
-        <TextBox x:Name="TBLogin" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" ToolTip="Введите логин" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBPass" Grid.Row="2" Grid.Column="1" ToolTip="Введите пароль" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <ComboBox Name="cmbRole" 
-          Grid.Row="3" 
-          Grid.Column="1" 
-          SelectedValue="{Binding TypeID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-          SelectedValuePath="TypeID" 
-          DisplayMemberPath="Name" 
-          ToolTip="Выберите роль" 
-          Margin="10,5,50,5" 
-          VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBFio" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" Grid.Column="1" ToolTip="Введите ФИО" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBPhoto" Grid.Row="5" Grid.Column="1" ToolTip="Добавьте путь к фото" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBPhone" Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.Column="1" ToolTip="Введите телефон" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBEmail" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Grid.Row="7" Grid.Column="1" ToolTip="Введите почту" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-
-        <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="ButtonSave" Content="Сохранить" Width="150" Height="35" Click="ButtonSave_Click"/>
-            <Button x:Name="ButtonClean" Content="Очистить" Width="150" Height="35" Click="ButtonClean_Click"/>
-        </StackPanel>
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="Gray" Padding="15" Margin="15">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Center">
+                        <TextBlock Text="Логин:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBLogin" Width="350" Height="28"
+                                 Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"
+                                 ToolTip="Введите логин" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Center">
+                        <TextBlock Text="Пароль:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBPass" Width="350" Height="28" ToolTip="Введите пароль" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Center">
+                        <TextBlock Text="Роль:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <ComboBox Name="cmbRole" Width="350" Height="28"
+                                  SelectedValue="{Binding TypeID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                  SelectedValuePath="TypeID" DisplayMemberPath="Name"
+                                  ToolTip="Выберите роль" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Center">
+                        <TextBlock Text="ФИО:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBFio" Width="350" Height="28"
+                                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                 ToolTip="Введите ФИО" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Center">
+                        <TextBlock Text="Телефон:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBPhone" Width="350" Height="28"
+                                 Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"
+                                 ToolTip="Введите телефон" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Center">
+                        <TextBlock Text="Почта:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBEmail" Width="350" Height="28"
+                                 Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
+                                 ToolTip="Введите почту" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Center">
+                        <TextBlock Text="Фото:" FontSize="14" Width="220" VerticalAlignment="Top" Margin="0 5 0 0"/>
+                        <StackPanel Width="350">
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="ButtonSelectPhoto" Content="Выбрать фото" Width="150" Height="28" Click="ButtonSelectPhoto_Click"/>
+                                <TextBlock x:Name="TbPhotoStatus" Text="Не выбрано" VerticalAlignment="Center" Margin="10 0" TextTrimming="CharacterEllipsis" MaxWidth="190"/>
+                            </StackPanel>
+                            <TextBlock Text="Изображение будет приведено к квадратному формату 250×250" FontSize="11" Foreground="Gray" Margin="0 5 0 0" TextWrapping="Wrap"/>
+                            <Border BorderThickness="1" BorderBrush="LightGray" Width="250" Height="250" Margin="0 8 0 0" HorizontalAlignment="Left">
+                                <Image x:Name="PhotoPreview" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding ImagePath}"/>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
+                        <Button x:Name="ButtonSave" Content="Сохранить" Width="150" Height="35" Margin="10" Click="ButtonSave_Click"/>
+                        <Button x:Name="ButtonClean" Content="Очистить" Width="150" Height="35" Margin="10" Click="ButtonClean_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </Page>

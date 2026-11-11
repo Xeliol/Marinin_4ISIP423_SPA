@@ -73,12 +73,6 @@ namespace ISIP423_Marinin_SPA.Pages
                 MessageBox.Show("Только зарегистрированные клиенты могут пользоваться коризной.");
         }
 
-        private void AccountButton_Click(object sender, RoutedEventArgs e)
-        {
-            if ((NavigationData.CurrentData as CurData).ID == -1) NavigationService.Navigate(new LoginPage());
-            else NavigationService.Navigate(new AccountPage());
-        }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             SortProducts();

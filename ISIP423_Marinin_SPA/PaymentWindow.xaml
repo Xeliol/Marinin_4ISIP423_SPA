@@ -5,33 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ISIP423_Marinin_SPA"
         mc:Ignorable="d"
-        Title="PaymentWindow" Height="450" Width="800" Closing="Window_Closing">
+        Title="Оформление заказа" Height="450" Width="800" 
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+
     <Grid Background="White">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center" Text="Заказ"></TextBlock>
-        <StackPanel x:Name="MoviePanel" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top">
-            <Image Source="{Binding Products.ImagePath}" Width="Auto"/>
-            <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Products.Name}" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="0">
-            <TextBlock Text="Выбрать дату" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"/>
-            <Button Height="20" Width="auto" Click="Button_Click">Очистить</Button>
-            <Viewbox Width="300" Height="Auto">
-                <Calendar x:Name="SortCalendar" SelectedDatesChanged="SortCalendar_SelectedDatesChanged"/>
-            </Viewbox>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-            <TextBlock Text="Детали оплаты" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center"/>
-            <TextBlock Width="100" Margin="5">Способ оплаты:</TextBlock>
-            <ComboBox x:Name="PaymentBox" Width="100" Margin="5"></ComboBox>
-            <Button x:Name="OrderButton" Margin="20" Height="50" FontSize="24" FontWeight="Bold" Click="OrderButton_Click">Подтвердить заказ</Button>
-        </StackPanel>
+
+        <!-- Заголовок окна -->
+        <TextBlock Grid.Row="0" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Text="Оформление заказа"/>
+
+        <!-- Основной контент в единой рамке -->
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="Gray" Padding="20" Margin="15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Левая колонка: Календарь -->
+                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Выберите дату" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" Margin="0 0 0 10"/>
+                    <Viewbox Width="300" Height="250">
+                        <Calendar x:Name="SortCalendar" SelectedDatesChanged="SortCalendar_SelectedDatesChanged"/>
+                    </Viewbox>
+                    <Button Height="30" Width="150" Content="Очистить" Click="Button_Click" Margin="0 15 0 0"/>
+                </StackPanel>
+
+                <!-- Правая колонка: Детали оплаты -->
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Детали оплаты" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" Margin="0 0 0 20"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0 10" HorizontalAlignment="Center">
+                        <TextBlock Text="Способ оплаты:" FontSize="14" VerticalAlignment="Center" Width="130"/>
+                        <ComboBox x:Name="PaymentBox" Width="200" Height="28" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+
+                    <Button x:Name="OrderButton" Margin="0 30 0 0" Width="200" Height="40" FontSize="16" FontWeight="Bold" Content="Подтвердить заказ" Click="OrderButton_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

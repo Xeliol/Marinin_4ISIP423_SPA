@@ -22,8 +22,8 @@
         <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Grid.ColumnSpan="3" FontSize="22" FontWeight="Bold" Text="{Binding Name, StringFormat=Запись на услугу {0}}" />
         <Grid Grid.Column="0" Grid.Row="1" Margin="10 10 10 10">
             <StackPanel VerticalAlignment="Top">
-                <Border BorderThickness="1" Margin="0 0 0 10">
-                    <Image Source="{Binding Users.ImagePath}" Stretch="UniformToFill" Height="180"/>
+                <Border BorderThickness="1" BorderBrush="LightGray" Margin="0 0 0 10" Height="180">
+                    <Image Source="{Binding Users.ImagePath}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
                 <TextBlock FontSize="16" FontWeight="Bold" Text="{Binding Users.Name}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0 0 0 5"/>
                 <TextBlock Text="{Binding Users.Phone, StringFormat=Тел: {0}}" HorizontalAlignment="Center" Margin="0 0 0 2"/>

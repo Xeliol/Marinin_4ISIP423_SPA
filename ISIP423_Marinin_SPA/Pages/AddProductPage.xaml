@@ -1,58 +1,73 @@
 ﻿<Page x:Class="ISIP423_Marinin_SPA.Pages.AddProductPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:ISIP423_Marinin_SPA.Pages"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="550" d:DesignWidth="800"
       Title="AddProductPage">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Название товара:" Grid.Row="1" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Тип товара:" Grid.Row="2" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Производитель:" Grid.Row="3" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Цена:" Grid.Row="4" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Скидка (%):" Grid.Row="5" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Описание:" Grid.Row="6" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
-        <TextBlock Text="Путь к фото (необязательно):" Grid.Row="7" Grid.Column="0" Margin="20,0,0,0" FontSize="18" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="0" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" Text="Добавление товара"/>
 
-        <TextBox x:Name="TBName" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" ToolTip="Введите название товара" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <ComboBox Name="cmbType" 
-          SelectedValue="{Binding TypeID, UpdateSourceTrigger=PropertyChanged}" 
-          SelectedValuePath="TypeID" 
-          DisplayMemberPath="Name" 
-          Grid.Row="2" Grid.Column="1" ToolTip="Выберите тип товара" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <ComboBox Name="cmbManufacturer" 
-          SelectedValue="{Binding ManufacturerID, UpdateSourceTrigger=PropertyChanged}" 
-          SelectedValuePath="ManufacturerID" 
-          DisplayMemberPath="Name" 
-          Grid.Row="3" Grid.Column="1" ToolTip="Выберите производителя" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-
-        <TextBox x:Name="TBPrice" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" Grid.Column="1" ToolTip="Введите цену (целое число)" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBSale" Text="{Binding Sale, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Grid.Column="1" ToolTip="Введите скидку" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBDescription" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.Column="1" ToolTip="Введите описание товара" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TBPhoto" Grid.Row="7" Grid.Column="1" ToolTip="Добавьте путь к фото" Margin="10,5,50,5" VerticalContentAlignment="Center"/>
-
-        <StackPanel Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
-            <Button x:Name="ButtonSave" Content="Сохранить" Width="150" Height="35" Click="ButtonSave_Click" Margin="0,0,20,0"/>
-            <Button x:Name="ButtonClean" Content="Очистить" Width="150" Height="35" Click="ButtonClean_Click" Margin="0,0,20,0"/>
-        </StackPanel>
+        <Border Grid.Row="1" BorderThickness="1" BorderBrush="Gray" Padding="15" Margin="15">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="0 6" HorizontalAlignment="Center">
+                        <TextBlock Text="Название товара:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBName" Width="350" Height="28"
+                                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                 ToolTip="Введите название товара" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 6" HorizontalAlignment="Center">
+                        <TextBlock Text="Тип товара:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <ComboBox Name="cmbType" Width="350" Height="28"
+                                  SelectedValue="{Binding TypeID, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedValuePath="TypeID" DisplayMemberPath="Name"
+                                  ToolTip="Выберите тип товара" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 6" HorizontalAlignment="Center">
+                        <TextBlock Text="Производитель:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <ComboBox Name="cmbManufacturer" Width="350" Height="28"
+                                  SelectedValue="{Binding ManufacturerID, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedValuePath="ManufacturerID" DisplayMemberPath="Name"
+                                  ToolTip="Выберите производителя" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 6" HorizontalAlignment="Center">
+                        <TextBlock Text="Цена:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBPrice" Width="350" Height="28"
+                                 Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                                 ToolTip="Введите цену (целое число)" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 6" HorizontalAlignment="Center">
+                        <TextBlock Text="Скидка (%):" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBSale" Width="350" Height="28"
+                                 Text="{Binding Sale, UpdateSourceTrigger=PropertyChanged}"
+                                 ToolTip="Введите скидку" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 6" HorizontalAlignment="Center">
+                        <TextBlock Text="Описание:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBDescription" Width="350" Height="28"
+                                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                                 ToolTip="Введите описание товара" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 6" HorizontalAlignment="Center">
+                        <TextBlock Text="Путь к фото:" FontSize="14" Width="220" VerticalAlignment="Center"/>
+                        <TextBox x:Name="TBPhoto" Width="350" Height="28"
+                                 ToolTip="Добавьте путь к фото" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
+                        <Button x:Name="ButtonSave" Content="Сохранить" Width="150" Height="35" Margin="10" Click="ButtonSave_Click"/>
+                        <Button x:Name="ButtonClean" Content="Очистить" Width="150" Height="35" Margin="10" Click="ButtonClean_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </Page>

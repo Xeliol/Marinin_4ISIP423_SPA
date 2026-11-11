@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Class.cs" />
     <Compile Include="Core.cs" />
+    <Compile Include="ImageHelper.cs" />
     <Compile Include="Manufacturers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
